@@ -337,9 +337,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
+
 --- !u!61 &699196994
-=======
+
 --- !u!114 &699196994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   movespeed: 4
   t: {fileID: 0}
 --- !u!61 &699196995
->>>>>>> 0b68c65dd5c4fbe9f050ea286cc177cc028120d6
+
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,11 +368,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-<<<<<<< HEAD
+
   m_Offset: {x: -0.020049095, y: -0.010024071}
-=======
+
   m_Offset: {x: 0, y: 0.10523701}
->>>>>>> 0b68c65dd5c4fbe9f050ea286cc177cc028120d6
+
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -383,10 +383,10 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-<<<<<<< HEAD
+
   m_Size: {x: 1.3089237, y: 1.944561}
   m_EdgeRadius: 0
-=======
+
   m_Size: {x: 1.75, y: 1.914526}
   m_EdgeRadius: 0
 --- !u!50 &699196996
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e2757e09c87754e8c3efb5aa0541fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 0b68c65dd5c4fbe9f050ea286cc177cc028120d6
+
 --- !u!1 &797826040
 GameObject:
   m_ObjectHideFlags: 0
