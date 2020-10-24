@@ -19,6 +19,7 @@ public class JournalUIManage : MonoBehaviour
             //ResumeGame();
        // el//JournalUIPause();
 
+   // }
 
     //Func that will pause gameplay and bring up UI for Journal/Puzzle Solving
     public void JournalUIPause()
