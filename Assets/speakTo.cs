@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class speakTo : MonoBehaviour
 {
-    private string currentDialog;
+    private dialogBox dialogTrigger;
+    private string currentDialog = "";
 
     // Start is called before the first frame update
     void Start()
     {
-        currentDialog = "";
+        dialogTrigger = null;
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class speakTo : MonoBehaviour
         {
             if (currentDialog != "")
             {
+                currentDialog = dialogTrigger.RequestDialog();
                 Debug.Log(currentDialog);
             }
         }
@@ -27,13 +29,13 @@ public class speakTo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        string dialog = collision.GetComponent<dialogBox>().RequestDialog();
-        currentDialog = dialog;
+        dialogTrigger = collision.GetComponent<dialogBox>();
+        currentDialog = "something";
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        string dialog = collision.GetComponent<dialogBox>().RequestDialog();
+        dialogTrigger = null;
         currentDialog = "";
     }
 }
