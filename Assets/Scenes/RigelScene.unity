@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 797826043}
   - component: {fileID: 797826042}
   - component: {fileID: 797826044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
@@ -7932,7 +7932,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
   m_MaxChunkCount: 16
@@ -9393,6 +9393,22 @@ PrefabInstance:
     - target: {fileID: 4279524911861106076, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279524911861106144, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.024103165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279524911861106144, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2044907
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279524911861106144, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.043449044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279524911861106144, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
+      propertyPath: m_Size.y
+      value: 2.052201
       objectReference: {fileID: 0}
     - target: {fileID: 4279524911861106146, guid: 9a18101e8a226d744abb409cdacafcf5, type: 3}
       propertyPath: m_LocalPosition.x
