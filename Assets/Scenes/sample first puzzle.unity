@@ -445,9 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4238334daa8c08e42b7a836dbea05d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialog1: "\u4E4C\u9E26 \u9ED1\u8272\u7684 \u751C\u7684 \u82F9\u679C"
-  Dialog2: 
-  Dialog3: 
+  Dialog1: "\u4ECE"
+  Dialog2: ...
+  Dialog3: '"from"'
   Dialog4: 
   Dialog5: 
   Dialog6: 
@@ -7467,12 +7467,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4238334daa8c08e42b7a836dbea05d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialog1: Let me teach you some words
-  Dialog2: "\"\u82F9\u679C \u662F \u751C\u7684\" means \"sweet apple\""
-  Dialog3: "\"\u53EF\u4E50 \u662F \u751C\u7684\" means \"sweet coke\""
-  Dialog4: "\"\u53EF\u4E50 \u662F \u9ED1\u8272\u7684\" means \"black coke\""
-  Dialog5: "\"\u4E4C\u9E26 \u662F \u9ED1\u8272\u7684\" means \"black crow\""
-  Dialog6: Now see if you can tell what he's saying
+  Dialog1: "\u8BF4"
+  Dialog2: ...
+  Dialog3: '"speak"'
+  Dialog4: 
+  Dialog5: 
+  Dialog6: 
   Dialog7: 
   Dialog8: 
   Dialog9: 
