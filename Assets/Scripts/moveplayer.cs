@@ -29,8 +29,17 @@ public class moveplayer : MonoBehaviour
         isFaceRight = true;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        //player jump
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
         //move the player
         float translation = Input.GetAxis("Horizontal") * movespeed;
@@ -53,22 +62,6 @@ public class moveplayer : MonoBehaviour
 
         //animates the character based on movement
         anim.SetFloat("Speed", Mathf.Abs(translation));
-
-        //player jump
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    jump();
-        //}
-
-        //void jump()
-        //{
-        //    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        //}
     }
 
     private bool IsGrounded()
