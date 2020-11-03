@@ -7,6 +7,8 @@ public class speakTo : MonoBehaviour
     private dialogBox dialogTrigger;
     private string currentDialog = "";
 
+    public DialogueManager DialogueManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,11 @@ public class speakTo : MonoBehaviour
         {
             if (currentDialog != "")
             {
-                currentDialog = dialogTrigger.RequestDialog();
-                Debug.Log(currentDialog);
+                //currentDialog = dialogTrigger.RequestDialog();
+                dialogTrigger.RequestDialog();
+                //Debug.Log(currentDialog);
+
+                //DialogueManager.TriggerContinueNPCDialogue();
             }
         }
     }
@@ -36,6 +41,6 @@ public class speakTo : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogTrigger = null;
-        currentDialog = "";
+        currentDialog = string.Empty;
     }
 }
