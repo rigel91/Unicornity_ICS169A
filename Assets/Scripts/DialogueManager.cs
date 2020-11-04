@@ -5,22 +5,22 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private float typingSpeed = 0.05f;
-    [SerializeField] private bool PlayerSpeakingFirst;
+    public float typingSpeed = 0.05f;
+    public bool PlayerSpeakingFirst;
 
     [Header("Dialogue TMP text")]
-    [SerializeField] private TextMeshProUGUI playerDialogueText;
-    [SerializeField] private TextMeshProUGUI npcDialogueText;
+    public TextMeshProUGUI playerDialogueText;
+    public TextMeshProUGUI npcDialogueText;
 
     [Header("Animaton Controllers")]
-    [SerializeField] private Animator playerSpeechBubbleAnimator;
-    [SerializeField] private Animator npcSpeechBubbleAnimator;
+    public Animator playerSpeechBubbleAnimator;
+    public Animator npcSpeechBubbleAnimator;
 
     [Header("Dialogue sentences")]
     [TextArea]
-    [SerializeField] private string[] playerDialogueSentences;
+    public string[] playerDialogueSentences;
     [TextArea]
-    [SerializeField] private string[] npcDialogueSentences;
+    public string[] npcDialogueSentences;
 
     private int playerIndex;
     private int npcIndex;
