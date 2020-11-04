@@ -23,14 +23,14 @@ public class dialogBox : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
 
     [Header("Dialogue TMP text")]
-    [SerializeField] private TextMeshProUGUI npcDialogueText;
+    public TextMeshProUGUI npcDialogueText;
 
     [Header("Animaton Controllers")]
-    [SerializeField] private Animator npcSpeechBubbleAnimator;
+    public Animator npcSpeechBubbleAnimator;
 
     [Header("Dialogue sentences")]
     [TextArea]
-    [SerializeField] private string[] npcDialogueSentences;
+    public string[] npcDialogueSentences;
 
     private int npcIndex;
 
