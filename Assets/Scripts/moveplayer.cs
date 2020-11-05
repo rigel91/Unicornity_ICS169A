@@ -9,6 +9,7 @@ public class moveplayer : MonoBehaviour
     private BoxCollider2D col;
     private Rigidbody2D rb;
     public float movespeed = 0.5f;
+    public float translation;
     public float jumpForce;
     //player move Direction
     private SpriteRenderer sprite;
@@ -32,7 +33,7 @@ public class moveplayer : MonoBehaviour
 
     void Update()
     {
-        float translation = Input.GetAxis("Horizontal") * movespeed;
+        translation = Input.GetAxis("Horizontal") * movespeed;
         //animates the character based on movement
         anim.SetFloat("Speed", Mathf.Abs(translation));
 
