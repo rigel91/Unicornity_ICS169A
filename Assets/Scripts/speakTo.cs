@@ -9,6 +9,7 @@ public class speakTo : MonoBehaviour
 
     public DialogueManager DialogueManager;
 
+
     //For Interaction
     public Interactable focus;
 
@@ -70,5 +71,6 @@ public class speakTo : MonoBehaviour
     void RemoveFocus()
     {
         focus = null;
+
     }
 }
