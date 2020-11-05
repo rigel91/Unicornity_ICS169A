@@ -13,6 +13,7 @@ public class moveplayer : MonoBehaviour
     //player move Direction
     private SpriteRenderer sprite;
     public bool isFaceRight;
+    public bool isGrounded = true;
 
     //for the players animation
     private Animator anim;
@@ -29,8 +30,30 @@ public class moveplayer : MonoBehaviour
         isFaceRight = true;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        float translation = Input.GetAxis("Horizontal") * movespeed;
+        //animates the character based on movement
+        anim.SetFloat("Speed", Mathf.Abs(translation));
+
+        //player jump
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            anim.SetTrigger("Jump");
+        }
+        if (isGrounded)
+        {
+            anim.SetBool("IsJumping", false);
+        }
+        else
+        {
+            anim.SetBool("IsJumping", true);
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
         //move the player
         float translation = Input.GetAxis("Horizontal") * movespeed;
@@ -50,25 +73,6 @@ public class moveplayer : MonoBehaviour
             sprite.flipX = true;
             isFaceRight = false;
         }
-
-        //animates the character based on movement
-        anim.SetFloat("Speed", Mathf.Abs(translation));
-
-        //player jump
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    jump();
-        //}
-
-        //void jump()
-        //{
-        //    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-        //}
     }
 
     private bool IsGrounded()
@@ -79,8 +83,10 @@ public class moveplayer : MonoBehaviour
         RaycastHit2D ray = Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, .1f, platformLayer);
         if (ray.collider != null)
         {
+            isGrounded = true;
             return true;
         }
+        isGrounded = false;
         return false;
     }
 
