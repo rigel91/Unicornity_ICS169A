@@ -9,6 +9,9 @@ public class speakTo : MonoBehaviour
 
     public DialogueManager DialogueManager;
 
+    //For Interaction
+    public Interactable focus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class speakTo : MonoBehaviour
                 //Debug.Log(currentDialog);
 
                 //DialogueManager.TriggerContinueNPCDialogue();
+
             }
         }
     }
@@ -36,11 +40,35 @@ public class speakTo : MonoBehaviour
     {
         dialogTrigger = collision.GetComponent<dialogBox>();
         currentDialog = "something";
+
+        //Base of player/NPC interaction? - DA 11/4 
+        Interactable interactable = collision.GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            SetFocus(interactable);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogTrigger = null;
         currentDialog = string.Empty;
+
+        //Stop focusing
+        RemoveFocus();
+    }
+
+    //NPC interaction recoginition
+    void SetFocus(Interactable newFocus)
+    {
+        focus = newFocus;
+
+        //'E' Prompt here for talking NPC's
+    }
+
+    //NPC interaction DE-recognition
+    void RemoveFocus()
+    {
+        focus = null;
     }
 }
