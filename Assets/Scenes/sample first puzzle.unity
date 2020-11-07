@@ -385,6 +385,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3426300243927840658, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
   m_PrefabInstance: {fileID: 73844634}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &472648805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630689535155492338, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: m_Name
+      value: JournalUIManage
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
 --- !u!1 &641183279
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +452,8 @@ GameObject:
   m_Component:
   - component: {fileID: 641183281}
   - component: {fileID: 641183280}
+  - component: {fileID: 641183282}
+  - component: {fileID: 641183283}
   m_Layer: 0
   m_Name: NPC 1
   m_TagString: Untagged
@@ -468,6 +527,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &641183282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641183279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0036f2dcd7861b14283fa602bf70bfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  focus: {fileID: 0}
+  clue: {fileID: 641183282}
+  cName: Symbol2
+  icon: {fileID: 0}
+  clueKnown: 0
+--- !u!61 &641183283
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641183279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.75, y: 2.125}
+    newSize: {x: 0.93333334, y: 1.0666667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.75, y: 2.125}
+  m_EdgeRadius: 0
 --- !u!1 &797826040
 GameObject:
   m_ObjectHideFlags: 0
@@ -8812,6 +8915,8 @@ GameObject:
   - component: {fileID: 2137616895843060318}
   - component: {fileID: 2137616895843060313}
   - component: {fileID: 2137616895843060319}
+  - component: {fileID: 2137616895843060314}
+  - component: {fileID: 2137616895843060315}
   m_Layer: 0
   m_Name: NPC_Wizard
   m_TagString: Untagged
@@ -8870,6 +8975,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2137616895843060314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137616895843060312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0036f2dcd7861b14283fa602bf70bfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  focus: {fileID: 0}
+  clue: {fileID: 2137616895843060314}
+  cName: Symbol1
+  icon: {fileID: 0}
+  clueKnown: 0
+--- !u!61 &2137616895843060315
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137616895843060312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.875, y: 2.25}
+    newSize: {x: 1.875, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.875, y: 2.25}
+  m_EdgeRadius: 0
 --- !u!4 &2137616895843060318
 Transform:
   m_ObjectHideFlags: 0
@@ -9383,6 +9532,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   movespeed: 10
+  translation: 0
   jumpForce: 15
   isFaceRight: 0
   isGrounded: 1
