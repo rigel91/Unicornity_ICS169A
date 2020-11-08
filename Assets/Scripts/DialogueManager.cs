@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
+
+//IMPORTANT: THIS IS NOT IN USE but I'm leaving it here for future reference in case I want to see something from it
+// everything functional that  is actually being used is in dialogBox (which was basically a copy of this script), use that script instead if you are working on stuff
 {
     public float typingSpeed = 0.05f;
     public bool PlayerSpeakingFirst;

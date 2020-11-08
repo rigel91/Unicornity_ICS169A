@@ -26,12 +26,10 @@ public class speakTo : MonoBehaviour
         {
             if (currentDialog != "")
             {
-                //currentDialog = dialogTrigger.RequestDialog();
-                dialogTrigger.RequestDialog();
-                //Debug.Log(currentDialog);
-
-                //DialogueManager.TriggerContinueNPCDialogue();
-
+                if (!dialogTrigger.checkRepeatRequest())
+                {
+                    dialogTrigger.RequestDialog();
+                }
             }
         }
     }
