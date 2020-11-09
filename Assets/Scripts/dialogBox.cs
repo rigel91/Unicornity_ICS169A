@@ -157,7 +157,11 @@ public class dialogBox : MonoBehaviour
     public string RequestDialog()
     {
         ContinueNPCDialogue();
-        return npcDialogueClues[npcIndex];
+        if (npcIndex >= 0)
+        {
+            return npcDialogueClues[npcIndex];
+        }
+        return "";
     }
 
     public bool checkRepeatRequest()

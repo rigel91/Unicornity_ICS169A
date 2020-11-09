@@ -25,11 +25,14 @@ public class speakTo : MonoBehaviour
                 if (!dialogTrigger.checkRepeatRequest())
                 {
                     string newClue = dialogTrigger.RequestDialog();
-                    if (!checkJournalForClue(newClue))
+                    if (newClue != "")
                     {
-                        journal.AddClue(newClue);
-                        //journal.Add(newClue);
-                    }
+                        if (!checkJournalForClue(newClue))
+                        {
+                            journal.AddClue(newClue);
+                            //journal.Add(newClue);
+                        }
+                    } 
                 }
             }
         }

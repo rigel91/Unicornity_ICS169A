@@ -46,12 +46,17 @@ public class drag : EventTrigger
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("test");
         snapPosition S = collision.GetComponent<snapPosition>();
         if (S) //checks that the object collided with has a snap position before assuming this needs to be snapped to
         {
             Vector3 snapPos = S.getSnapPosition().position;
             newPos.x = snapPos.x;
             newPos.y = snapPos.y;
+
+            Debug.Log(newPos.x);
+            Debug.Log(newPos.y);
+
             needToSnap = true;
         }
         solutionBox B = collision.GetComponent<solutionBox>();
@@ -81,7 +86,7 @@ public class drag : EventTrigger
 
         if (needToSnap)
         {
-            transform.position = newPos;
+            //transform.position = newPos;
         }
     }
 

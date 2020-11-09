@@ -114,8 +114,6 @@ public class JournalUIManage : MonoBehaviour
 
     private void spawnClueInJournal(int clueIndex)
     {
-        //clueWordList[clueIndex].GetComponent<RectTransform>().sizeDelta = new Vector2(clueScale, clueScale);
         clueWordList[clueIndex].GetComponent<RectTransform>().localScale = new Vector3(clueScale, clueScale, 1);
-        Debug.Log("size should have changed");
     }
 }
