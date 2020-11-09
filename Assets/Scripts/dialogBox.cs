@@ -17,6 +17,10 @@ public class dialogBox : MonoBehaviour
     [TextArea]
     public string[] npcDialogueSentences;
 
+    [Header("Journal clues")]
+    [TextArea]
+    public string[] npcDialogueClues;
+
     public int npcIndex;
 
     private float speechBubbleAnimationDelay = 0.6f;
@@ -150,9 +154,14 @@ public class dialogBox : MonoBehaviour
 
     }
 
-    public void RequestDialog()
+    public string RequestDialog()
     {
         ContinueNPCDialogue();
+        if (npcIndex >= 0)
+        {
+            return npcDialogueClues[npcIndex];
+        }
+        return "";
     }
 
     public bool checkRepeatRequest()
