@@ -7,10 +7,7 @@ public class speakTo : MonoBehaviour
     private dialogBox dialogTrigger;
     private string currentDialog = "";
 
-    public DialogueManager DialogueManager;
-
-
-    
+    public JournalUIManage journal;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +22,32 @@ public class speakTo : MonoBehaviour
         {
             if (currentDialog != "")
             {
-                //currentDialog = dialogTrigger.RequestDialog();
-                dialogTrigger.RequestDialog();
-                //Debug.Log(currentDialog);
-
-                //DialogueManager.TriggerContinueNPCDialogue();
-
+                if (!dialogTrigger.checkRepeatRequest())
+                {
+                    string newClue = dialogTrigger.RequestDialog();
+                    if (newClue != "")
+                    {
+                        if (!checkJournalForClue(newClue))
+                        {
+                            journal.AddClue(newClue);
+                            //journal.Add(newClue);
+                        }
+                    } 
+                }
             }
         }
+    }
+
+    private bool checkJournalForClue(string newClue)
+    {
+        foreach (Clue clue in journal.clueList)
+        {
+            if (newClue == clue.cName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 

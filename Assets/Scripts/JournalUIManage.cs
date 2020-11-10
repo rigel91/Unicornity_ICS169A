@@ -27,11 +27,18 @@ public class JournalUIManage : MonoBehaviour
     public List<Clue> clueList = new List<Clue>();
     public int space = 6;
 
+    //This is Erol, creating an alternate clue list using different word objects instead of clue objects
+    public List<GameObject> clueWordList = new List<GameObject>();
+
+    public float clueScale = .75f;
+
     // Tracking if game is paused.. ACCESSIBLE.
     public static bool GameIsPaused = false;
 
     // Reference to Journal Pause UI, brings up UI when appropriately used. (JournalUIPause)
     public GameObject pauseMenuUI;
+
+    public GameObject clueToSetActive;
    
     //Func that will pause gameplay and bring up UI for Journal/Puzzle Solving
     public void JournalUIPause()
@@ -59,6 +66,8 @@ public class JournalUIManage : MonoBehaviour
     }
 
     //Adding Clues to JUI
+
+    // This is Daniel's version of a clue-adding function
     public void Add (Clue clue)
     {
         if (clue.clueKnown == false)
@@ -80,11 +89,31 @@ public class JournalUIManage : MonoBehaviour
             Debug.Log("Clue already given!");
     }
 
+
+    //Erol's version of a clue-adding function
+    public void AddClue(string clueWord)
+    {
+        int clueIndex = 0;
+        foreach (GameObject clueObject in clueWordList)
+        {
+            if (clueObject.GetComponent<clueWord>().clueText == clueWord)
+            {
+                spawnClueInJournal(clueIndex);
+            }
+            clueIndex++;
+        }
+    }
+
     //Removing Clues (Once level completed...?)
     public void Remove (Clue clue)
     {
         clueList.Remove(clue);
         if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
+    }
+
+    private void spawnClueInJournal(int clueIndex)
+    {
+        clueWordList[clueIndex].GetComponent<RectTransform>().localScale = new Vector3(clueScale, clueScale, 1);
     }
 }
