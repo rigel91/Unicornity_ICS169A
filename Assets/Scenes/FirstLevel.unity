@@ -120609,11 +120609,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5071176932745068393, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5071176933418585045, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
@@ -130391,6 +130391,14 @@ PrefabInstance:
     - target: {fileID: 3426300243927840659, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
       propertyPath: m_Name
       value: DialogBoxL
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071176932745068393, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5071176933418585045, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aca04b7e078f5641b90088a2c066015, type: 3}
