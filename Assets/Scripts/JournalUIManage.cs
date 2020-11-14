@@ -51,7 +51,7 @@ public class JournalUIManage : MonoBehaviour
         else
         {
             pauseMenuUI.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;  Changing the time scale to 0 causes box colliders in the Journal UI to not register. Cannot freeze time
             GameIsPaused = true;
         }
         
@@ -61,7 +61,7 @@ public class JournalUIManage : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f; Don't freeze and un-freeze time; see comment above in JournalUIPause() function
         GameIsPaused = false;
     }
 
