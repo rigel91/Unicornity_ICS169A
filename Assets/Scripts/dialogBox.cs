@@ -21,7 +21,11 @@ public class dialogBox : MonoBehaviour
     [TextArea]
     public string[] npcDialogueClues;
 
-    public int npcIndex;
+    private int npcIndex;
+
+    public string translatedText;
+
+    public List<GameObject> foreignWordPopups;
 
     private float speechBubbleAnimationDelay = 0.6f;
 
@@ -88,14 +92,37 @@ public class dialogBox : MonoBehaviour
 
     private void requestClose()
     {
-        npcIndex = -1;
-        bubbleTransitioning = true;
-        StartCoroutine(closeDialogBox());
-        bubbleTransitioning = false;
+        if (!dialogClosed)
+        {
+            npcIndex = -1;
+            bubbleTransitioning = true;
+            StartCoroutine(closeDialogBox());
+            bubbleTransitioning = false;
+        }
+        
+    }
+
+    private float getTypingDelay()
+    {
+        return typingSpeed * npcDialogueSentences[npcIndex].ToCharArray().Length;
+    }
+
+    private float waitForTyping(float timer) //not in use
+    {
+        return timer - Time.deltaTime;
+    }
+
+    private IEnumerator waitBubbleAnimation()
+    {
+        yield return new WaitForSeconds(speechBubbleAnimationDelay);
     }
 
     private IEnumerator openDialogBox()
     {
+        foreach (GameObject fwp in foreignWordPopups)
+        {
+            fwp.GetComponent<animatePopup>().playAnimation();
+        }
         dialogTransitioning = true;
 
         npcSpeechBubbleAnimator.SetTrigger("Open");
@@ -154,14 +181,14 @@ public class dialogBox : MonoBehaviour
 
     }
 
-    public string RequestDialog()
+    public string[] RequestDialog()
     {
         ContinueNPCDialogue();
         if (npcIndex >= 0)
         {
-            return npcDialogueClues[npcIndex];
+            return npcDialogueClues;
         }
-        return "";
+        return new string[]{};
     }
 
     public bool checkRepeatRequest()
@@ -169,4 +196,8 @@ public class dialogBox : MonoBehaviour
         return dialogTransitioning;
     }
 
+    public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
+    {
+        npcDialogueSentences[0] = translatedText;
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class solutionManager : MonoBehaviour
 {
     public solutionBox[] solutionBoxes;
+    public dialogBox[] dialogBoxesOnLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,17 @@ public class solutionManager : MonoBehaviour
             foreach (solutionBox box in solutionBoxes)
             {
                 box.lockPosition();
+                revealAllText();
             }
-            Debug.Log("puzzle solved!");
+            //Debug.Log("puzzle solved!");
+        }
+    }
+
+    private void revealAllText()
+    {
+        foreach (dialogBox db in dialogBoxesOnLevel)
+        {
+            db.translateText();
         }
     }
 

@@ -30,6 +30,9 @@ public class JournalUIManage : MonoBehaviour
     //This is Erol, creating an alternate clue list using different word objects instead of clue objects
     public List<GameObject> clueWordList = new List<GameObject>();
 
+    public List<string> translateHintList = new List<string>();
+    public List<GameObject> hintBoxList = new List<GameObject>();
+
     public float clueScale = .75f;
 
     // Tracking if game is paused.. ACCESSIBLE.
@@ -37,8 +40,6 @@ public class JournalUIManage : MonoBehaviour
 
     // Reference to Journal Pause UI, brings up UI when appropriately used. (JournalUIPause)
     public GameObject pauseMenuUI;
-
-    public GameObject clueToSetActive;
    
     //Func that will pause gameplay and bring up UI for Journal/Puzzle Solving
     public void JournalUIPause()
@@ -115,5 +116,16 @@ public class JournalUIManage : MonoBehaviour
     private void spawnClueInJournal(int clueIndex)
     {
         clueWordList[clueIndex].GetComponent<RectTransform>().localScale = new Vector3(clueScale, clueScale, 1);
+    }
+
+    public void revealHint(string hintText)
+    {
+        foreach (GameObject hintBox in hintBoxList)
+        {
+            if (hintText == hintBox.GetComponent<revealHint>().hintText)
+            {
+                hintBox.GetComponent<revealHint>().RevealHint();
+            }
+        }
     }
 }
