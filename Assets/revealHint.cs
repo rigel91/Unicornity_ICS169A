@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class clueWord : MonoBehaviour
+public class revealHint : MonoBehaviour
 {
-    public string clueText;
     public string hintText;
-
+    public TMP_InputField hintBoxText;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +17,10 @@ public class clueWord : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RevealHint()
+    {
+        hintBoxText.text = hintText;
     }
 }

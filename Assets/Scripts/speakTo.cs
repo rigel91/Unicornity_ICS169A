@@ -5,7 +5,7 @@ using UnityEngine;
 public class speakTo : MonoBehaviour
 {
     private dialogBox dialogTrigger;
-    private string currentDialog = "";
+    private string currentDialog = string.Empty;
 
     public JournalUIManage journal;
 
@@ -20,25 +20,42 @@ public class speakTo : MonoBehaviour
     {
         if (Input.GetKeyDown("e"))
         {
-            if (currentDialog != "")
+            if (currentDialog != string.Empty)
             {
-                if (!dialogTrigger.checkRepeatRequest())
+                if (dialogTrigger && !dialogTrigger.checkRepeatRequest())
                 {
-                    string newClue = dialogTrigger.RequestDialog();
-                    if (newClue != "")
+                    string[] newClues = dialogTrigger.RequestDialog();
+                    foreach (string newClue in newClues)
                     {
-                        if (!checkJournalForClue(newClue))
+                        if (newClue != string.Empty)
                         {
-                            journal.AddClue(newClue);
-                            //journal.Add(newClue);
+                            if (!checkJournalForClue(newClue))
+                            {
+                                journal.AddClue(newClue);
+                                updateHintInJournal(newClue);
+                            }
                         }
-                    } 
+                    }
+                    
                 }
             }
         }
     }
 
-    private bool checkJournalForClue(string newClue)
+    private void updateHintInJournal(string newClue)
+    {
+        foreach (GameObject clueObject in journal.clueWordList)
+        {
+            if (clueObject.GetComponent<clueWord>().clueText == newClue) //find the appropriate clueWord object
+            {
+                string hintText = clueObject.GetComponent<clueWord>().hintText; //find the appropriate hint for the given clueWord
+                journal.revealHint(hintText);
+            }
+            
+        }
+    }
+
+    private bool checkJournalForClue(string newClue) //currently not helpful since the way clues are made to appear in the journal (change the size from 0 to 1) cannot make a clue appear more than once
     {
         foreach (Clue clue in journal.clueList)
         {
@@ -53,16 +70,20 @@ public class speakTo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        dialogTrigger = collision.GetComponent<dialogBox>();
-        currentDialog = "something";
-
+        if (collision.GetComponent<dialogBox>() != null)
+        {
+            dialogTrigger = collision.GetComponent<dialogBox>();
+            currentDialog = "something";
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        dialogTrigger = null;
-        currentDialog = string.Empty;
-
+        if (collision.GetComponent<dialogBox>() != null) //only do this for the speakTo trigger boxes not the walkAway trigger boxes
+        {
+            dialogTrigger = null;
+            currentDialog = string.Empty;
+        }
         //Stop focusing
         //RemoveFocus();
     }

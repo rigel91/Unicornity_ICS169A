@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class clueWord : MonoBehaviour
+public class animatePopup : MonoBehaviour
 {
-    public string clueText;
-    public string hintText;
+    public Animator foreignWordPopupAnimator;
+    private float popupAnimationDelay = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +17,10 @@ public class clueWord : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void playAnimation()
+    {
+        foreignWordPopupAnimator.SetTrigger("Play");
     }
 }
