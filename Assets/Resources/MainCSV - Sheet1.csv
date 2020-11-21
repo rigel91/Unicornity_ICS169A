@@ -1,0 +1,7 @@
+character_number,character_sprite,full_clue,keyword,meaning,dialog,//MEMO
+0,a000b0504030003,NONE,NONE,NONE,,PLAYER
+1,a09000102000302,You...You fell from the sky!,天空,the sky,Did you fall from the tower?,
+2,a01090408060104,"You are hurt, but no one can help you this far from the tower...",塔,the tower,The trouble of living so deep in the outskirts is always having to travel far for help.,
+3,a000a0405000004,Someone in the forest must be able to heal you with their magic,"森林,魔法","the forest,magic",Head in the tower's direction. The forest is surrounding it.,
+4,a09050704040100,I heard the tower has magic that can do anything...,"塔,魔法","the tower,magic","I've never been that close before, but if the stories are true, maybe my family can have a better life.",
+5,a0c000400000502,Do you know the story about the man in the tower?,NONE,NONE,"My grandmother told me about it once, but I couldn't remember.",

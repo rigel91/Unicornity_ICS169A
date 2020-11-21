@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCFlip : MonoBehaviour
 {
+    public int characterNumber;
+
     private GameObject player;
     private moveplayer direction;
     private SpriteRenderer sprite;
@@ -20,9 +22,9 @@ public class NPCFlip : MonoBehaviour
     void Update()
     {
         float distance = player.transform.position.x - transform.position.x;
-        if ((Mathf.Abs(distance) < distanceAway) && direction.isFaceRight && distance <= 0&& Input.GetKeyDown(KeyCode.E))
+        if ((Mathf.Abs(distance) < distanceAway) && direction.isFaceRight && distance <= 0 && Input.GetKeyDown(KeyCode.E))
         {
-            sprite.flipX = true;
+            sprite.flipX = true;            
         }
         else if ((Mathf.Abs(distance) < distanceAway) && !direction.isFaceRight && distance >= 0 && Input.GetKeyDown(KeyCode.E))
         {
