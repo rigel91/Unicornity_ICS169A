@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NPCFlip : MonoBehaviour
 {
-    public int characterNumber;
-
     private GameObject player;
     private moveplayer direction;
     private SpriteRenderer sprite;
