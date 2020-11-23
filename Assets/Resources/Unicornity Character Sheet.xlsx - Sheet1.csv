@@ -1,7 +1,7 @@
-CharacterID,Level,Languages,KeywordID,KeywordMeaning,Dialog,Full Clue
-a000b0504030003,NULL,NULL,NULL,NULL,Did you fall from the tower?How are you?  \ Whats your name?,NULL
-a09000102000302,0,a,0,the sky,Did you fall from the tower?,You...You fell from the sky!
+CharacterID,Level,Languages,KeywordID,KeywordMeaning,Dialogue,Full Clue
+a000b0504030003,NULL,NULL,NULL,NULL,Did you fall from the tower?~How are you?~Whats your name?,NULL
+a09000102000302,0,a,0,the sky,Did you fall from the tower?~I saw you fall!,You...You fell from the sky!
 a01090408060104,0,a,1,the tower,The trouble of living so deep in the outskirts is always having to travel far for help.,"You are hurt, but no one can help you this far from the tower..."
-a000a0405000004,0,a,"2,3","the forest, magic",Head in the tower's direction. The forest is surrounding it.,Someone in the forest must be able to heal you with their magic
+a000a0405000004,0,a,"2,3","the forest, magic",Head in the tower's direction.~The forest is surrounding it.,Someone in the forest must be able to heal you with their magic
 a09050704040100,0,a,"1,3","the tower, magic","I've never been that close before, but if the stories are true, maybe my family can have a better life.",I heard the tower has magic that can do anything...
 a0c000400000502,0,a,NULL,NULL,"My grandmother told me about it once, but I couldn't remember.",Do you know the story about the man in the tower?
