@@ -19,9 +19,6 @@ public class moveplayer : MonoBehaviour
     //for the players animation
     private Animator anim;
 
-    //Audio Purposes
-    bool isMoving = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -99,5 +96,8 @@ public class moveplayer : MonoBehaviour
         isGrounded = false;
         return false;
     }
-
-}
+    private void WalkAudio()
+    {
+        AudioManager.instance.Play("Walk");
+    }
+} 
