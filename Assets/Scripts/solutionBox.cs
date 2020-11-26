@@ -24,10 +24,13 @@ public class solutionBox : MonoBehaviour
 
     public void check(GameObject g)
     {
-        if (g == correctClue)
+        if (correctClue != null)
         {
-            correctlyAssigned = true;
-            sm.checkAllSolutions();
+            if (g == correctClue)
+            {
+                correctlyAssigned = true;
+                sm.checkAllSolutions();
+            }
         }
     }
 

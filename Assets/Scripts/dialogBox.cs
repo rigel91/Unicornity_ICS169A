@@ -21,6 +21,8 @@ public class dialogBox : MonoBehaviour
     [TextArea]
     public string[] npcDialogueClues;
 
+    public GameObject hintSentence;
+
     private int npcIndex;
 
     public string translatedText;
@@ -199,5 +201,10 @@ public class dialogBox : MonoBehaviour
     public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
     {
         npcDialogueSentences[0] = translatedText;
+    }
+
+    public void revealHintSentence()
+    {
+        hintSentence.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 50);
     }
 }
