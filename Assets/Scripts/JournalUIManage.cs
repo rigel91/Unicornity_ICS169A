@@ -27,8 +27,9 @@ public class JournalUIManage : MonoBehaviour
     public List<Clue> clueList = new List<Clue>();
     public int space = 6;
 
-    //This is Erol, creating an alternate clue list using different word objects instead of clue objects
     public List<GameObject> clueWordList = new List<GameObject>();
+
+    public List<GameObject> hintSentenceList = new List<GameObject>();
 
     public List<string> translateHintList = new List<string>();
     public List<GameObject> hintBoxList = new List<GameObject>();
