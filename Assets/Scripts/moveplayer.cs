@@ -42,15 +42,20 @@ public class moveplayer : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             anim.SetTrigger("Jump");
+
+            //HumanJumpSound -- Instance of Jump happens here.
+            AudioManager.instance.Play("Jump");
         }
         if (isGrounded)
         {
             anim.SetBool("IsJumping", false);
+
         }
         else
         {
             anim.SetBool("IsJumping", true);
         }
+
     }
 
     // Update is called once per frame
@@ -60,6 +65,7 @@ public class moveplayer : MonoBehaviour
         float translation = Input.GetAxis("Horizontal") * movespeed;
         translation *= Time.deltaTime;
         transform.Translate(translation, 0, 0);
+
 
         //flip the player
         if (Input.GetAxisRaw("Horizontal") > 0)
@@ -90,5 +96,8 @@ public class moveplayer : MonoBehaviour
         isGrounded = false;
         return false;
     }
-
-}
+    private void WalkAudio()
+    {
+        AudioManager.instance.Play("Walk");
+    }
+} 
