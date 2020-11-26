@@ -33,6 +33,7 @@ public class speakTo : MonoBehaviour
                             {
                                 journal.AddClue(newClue);
                                 updateHintInJournal(newClue);
+                                dialogTrigger.revealHintSentence();
                             }
                         }
                     }

@@ -7,6 +7,7 @@ public class revealHint : MonoBehaviour
 {
     public string hintText;
     public TMP_InputField hintBoxText;
+    
     // Start is called before the first frame update
     void Start()
     {
