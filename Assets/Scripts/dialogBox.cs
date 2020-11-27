@@ -35,6 +35,9 @@ public class dialogBox : MonoBehaviour
     public bool dialogTransitioning;
     private bool bubbleTransitioning;
 
+    //------------------------Getting NPC data from root parent------------------------
+    private Transform NPC;
+
     public IEnumerator StartDialogue()
     {
         npcSpeechBubbleAnimator.SetTrigger("Open");
@@ -174,6 +177,11 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Getting NPC data; TODO: this doesnt work since multiple npcs under gameobject; could just go up by four since its fixed
+        //NPC = transform.root.gameObject.GetComponent<Transform>();
+        //print(NPC.name);
+
+
         npcIndex = -1;
         dialogClosed = true;
     }
