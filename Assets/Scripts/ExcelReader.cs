@@ -1,103 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
-public class ExcelReader : MonoBehaviour
+public class CSVReader
 {
-    private TextAsset characterData;
+    static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
+    static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
+    static char[] TRIM_CHARS = { '\"' };
 
-    // Start is called before the first frame update
-    void Start()
+    public static List<Dictionary<string, object>> Read(string file)
     {
-        characterData = Resources.Load<TextAsset>("Unicornity Character Sheet.xlsx - Sheet1");
-    }
+        var list = new List<Dictionary<string, object>>();
+        TextAsset data = Resources.Load(file) as TextAsset;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        var lines = Regex.Split(data.text, LINE_SPLIT_RE);
 
-    //gets the level that each NPC is on
-    public int GetLevel(string characterID)
-    {
-        string[] lines = characterData.text.Split(new char[] { '\n' });
-        for (int i = 2; i < lines.Length; i++)
+        if (lines.Length <= 1) return list;
+
+        var header = Regex.Split(lines[0], SPLIT_RE);
+        for (var i = 1; i < lines.Length; i++)
         {
-            string[] cells = lines[i].Split(new char[] { ',' });
 
-            if (cells[0] == characterID)
+            var values = Regex.Split(lines[i], SPLIT_RE);
+            if (values.Length == 0 || values[0] == "") continue;
+
+            var entry = new Dictionary<string, object>();
+            for (var j = 0; j < header.Length && j < values.Length; j++)
             {
-                return Convert.ToInt32(cells[1]);
-            }
-        }
-        return 0;
-    }
-
-    //gets the languages each NPC has; each different language is separated by  a '~' character in the csv excel file
-    public List<string> GetLanguageType(string characterID)
-    {
-        List<string> totalLanguages = new List<string>();
-
-        string[] lines = characterData.text.Split(new char[] { '\n' });
-        for (int i = 2; i < lines.Length; i++)
-        {
-            string[] cells = lines[i].Split(new char[] { ',' });
-
-            if (cells[0] == characterID)
-            {
-                string[] languages = cells[2].Split(new char[] { '~' });
-                foreach (string l in languages)
+                string value = values[j];
+                value = value.TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", "");
+                object finalvalue = value;
+                int n;
+                float f;
+                if (int.TryParse(value, out n))
                 {
-                    totalLanguages.Add(l);
+                    finalvalue = n;
                 }
-            }
-        }
-        return totalLanguages;
-    }
-
-    //gets the different dialogues of each NPC has; each different dialogue is separated by  a '~' character in the csv excel file
-    public List<string> GetDialgoue(string characterID)
-    {
-        List<string> totalDialogues = new List<string>();
-
-        string[] lines = characterData.text.Split(new char[] { '\n' });
-        for (int i = 2; i < lines.Length; i++)
-        {
-            string[] cells = lines[i].Split(new char[] { ',' });
-
-            if (cells[0] == characterID)
-            {
-                string[] dialogues = cells[5].Split(new char[] { '~' });
-                foreach (string d in dialogues)
+                else if (float.TryParse(value, out f))
                 {
-                    totalDialogues.Add(d);
+                    finalvalue = f;
                 }
+                entry[header[j]] = finalvalue;
             }
+            list.Add(entry);
         }
-        return totalDialogues;
-    }
-
-    //gets the different dialogue clues of each NPC has; each different dialogue clue is separated by  a '~' character in the csv excel file
-    public List<string> GetFullClues(string characterID)
-    {
-        List<string> totalClues = new List<string>();
-
-        string[] lines = characterData.text.Split(new char[] { '\n' });
-        for (int i = 2; i < lines.Length; i++)
-        {
-            string[] cells = lines[i].Split(new char[] { ',' });
-
-            if (cells[0] == characterID)
-            {
-                string[] clues = cells[6].Split(new char[] { '~' });
-                foreach (string c in clues)
-                {
-                    totalClues.Add(c);
-                }
-            }
-        }
-        return totalClues;
+        return list;
     }
 }

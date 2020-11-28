@@ -16,48 +16,67 @@ public class NPCData : MonoBehaviour
     [System.NonSerialized] public List<string> dialogue = new List<string>(); //dialog for journal entries
     [System.NonSerialized] public List<string> fullClue = new List<string>(); //dialog for the npc after solving the puzzle
 
-    //set the values from excel
-    private ExcelReader reader;
+    //Flag Dialogue
+    //TODO: add the many flag dialogues
 
     //array of language gameobjects...
 
+    void Awake()
+    {
+        //data from the csv file - string: row, object: column
+        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (1)");
+
+        //set the variables for the NPC
+        for (var i = 0; i < data.Count; i++)
+        {
+            if ((data[i]["CharacterID"]).ToString() == characterID)
+            {
+                //set level
+                level = (int)data[i]["Level"];
+                //print("Level: " + data[i]["Level"]);
+
+                //set language
+                string[] language = data[i]["Languages"].ToString().Split(new char[] { '~' });
+                for (int j = 0; j < language.Length; j++)
+                {
+                    languages.Add(language[j]);
+                    //print("Languages: " + language[j]);
+                }
+
+                //set keywordID
+                string[] id = data[i]["KeywordID"].ToString().Split(new char[] { '~' });
+                for (int j = 0; j < id.Length; j++)
+                {
+                    keywordID.Add(System.Convert.ToInt32(id[j]));
+                    //print("Keyword ID: " + System.Convert.ToInt32(id[j]));
+                }
+
+                //set the dialogue
+                string[] sentences = data[i]["Dialogue"].ToString().Split(new char[] { '~' });
+                for (int j = 0; j < sentences.Length; j++)
+                {
+                    dialogue.Add(sentences[j]);
+                    //print("Dialogue: " + sentences[j]);
+                }
+
+                //set the dialogue
+                string[] clues = data[i]["Full Clue"].ToString().Split(new char[] { '~' });
+                for (int j = 0; j < clues.Length; j++)
+                {
+                    fullClue.Add(clues[j]);
+                    //print("Full Clues: " + clues[j]);
+                }
+            }
+        }
+    }
+
     void Start()
     {
-        reader = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ExcelReader>();
 
-        //gets the level
-        level = reader.GetLevel(characterID);
-        //gets the languages
-        languages = reader.GetLanguageType(characterID);
-
-        //TODO: figure out keywordID and keywordMeaning
-
-        //gets the dialog
-        dialogue = reader.GetDialgoue(characterID);
-        //gets full clues
-        fullClue = reader.GetFullClues(characterID);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            ////prints level
-            //Debug.Log("NPC: " + characterID + "; level: " + level);
-            ////prints each language
-            //foreach(string l in languages)
-            //{
-            //    Debug.Log("NPC: " + characterID + "; languages: " + l);
-            //}
-            //prints each dialogue
-            //foreach (string d in dialogue)
-            //{
-            //    Debug.Log("NPC: " + characterID + "; dialgoue: " + d);
-            //}
-            foreach (string c in fullClue)
-            {
-                Debug.Log("NPC: " + characterID + "; clue: " + c);
-            }
-        }
+
     }
 }

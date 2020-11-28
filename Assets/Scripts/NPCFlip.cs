@@ -22,11 +22,11 @@ public class NPCFlip : MonoBehaviour
         float distance = player.transform.position.x - transform.position.x;
         if ((Mathf.Abs(distance) < distanceAway) && direction.isFaceRight && distance <= 0 && Input.GetKeyDown(KeyCode.E))
         {
-            sprite.flipX = true;            
+            sprite.flipX = false;            
         }
         else if ((Mathf.Abs(distance) < distanceAway) && !direction.isFaceRight && distance >= 0 && Input.GetKeyDown(KeyCode.E))
         {
-            sprite.flipX = false;
+            sprite.flipX = true;
         }
     }
 }
