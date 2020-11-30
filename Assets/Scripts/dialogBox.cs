@@ -13,10 +13,13 @@ public class dialogBox : MonoBehaviour
     [Header("Animaton Controllers")]
     public Animator npcSpeechBubbleAnimator;
 
+    //npc reads the full clue dialogue without translations
     [Header("Dialogue sentences")]
     [TextArea]
-    public string[] npcDialogueSentences;
+    //public string[] npcDialogueSentences;
+    private List<string> npcDialogueSentences;
 
+    //---------------------------------------------Edit here----------------------------------------
     [Header("Journal clues")]
     [TextArea]
     public string[] npcDialogueClues;
@@ -25,7 +28,9 @@ public class dialogBox : MonoBehaviour
 
     private int npcIndex;
 
+    //---------------------------------------------Edit here----------------------------------------
     public string translatedText;
+    //private List<string> translatedText;
 
     public List<GameObject> foreignWordPopups;
 
@@ -35,8 +40,8 @@ public class dialogBox : MonoBehaviour
     public bool dialogTransitioning;
     private bool bubbleTransitioning;
 
-    //------------------------Getting NPC data from root parent------------------------
-    private Transform NPC;
+    //Getting NPC data
+    private NPCData npcData;
 
     public IEnumerator StartDialogue()
     {
@@ -46,9 +51,12 @@ public class dialogBox : MonoBehaviour
         StartCoroutine(TypeNPCDialogue());
     }
 
+    //---------------------------------------------Edit here----------------------------------------
     private IEnumerator TypeNPCDialogue()
     {
-        
+        //TODO:type each letter one by one in npcDialogueSentences; check before if need to parse the defined words
+        //print(npcData.GetWordDefinition(npcData.keywordID[0]));
+
         foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
         {
             if (dialogTransitioning == true)
@@ -58,13 +66,22 @@ public class dialogBox : MonoBehaviour
             }
         }
         dialogTransitioning = false;
-        
 
+        //foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
+        //{
+        //    if (dialogTransitioning == true)
+        //    {
+        //        npcDialogueText.text += letter;
+        //        yield return new WaitForSeconds(typingSpeed);
+        //    }
+        //}
+        //dialogTransitioning = false;
     }
 
+    //---------------------------------------------Edit here----------------------------------------
     private void ContinueNPCDialogue()
     {
-        if (npcIndex < npcDialogueSentences.Length - 1)
+        if (npcIndex < npcDialogueSentences.Count - 1)
         {
             npcIndex++;
             if (!dialogClosed)
@@ -104,7 +121,7 @@ public class dialogBox : MonoBehaviour
             StartCoroutine(closeDialogBox());
             bubbleTransitioning = false;
         }
-        
+
     }
 
     private float getTypingDelay()
@@ -151,7 +168,7 @@ public class dialogBox : MonoBehaviour
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
-        
+
         StartCoroutine(TypeNPCDialogue());
 
         dialogClosed = false;
@@ -164,7 +181,7 @@ public class dialogBox : MonoBehaviour
 
         npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
-        
+
         dialogClosed = true;
         dialogTransitioning = false;
     }
@@ -177,10 +194,32 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Getting NPC data; TODO: this doesnt work since multiple npcs under gameobject; could just go up by four since its fixed
-        //NPC = transform.root.gameObject.GetComponent<Transform>();
-        //print(NPC.name);
+        //Getting NPC data
+        npcData = gameObject.GetComponent<NPCData>();
 
+        //set npc dialogue before puzzle
+        List<string> sentenceTotal = new List<string>();
+
+        for (int i = 0; i < npcData.fullClue.Count; i++)
+        {
+            string total = npcData.fullClue[i];
+            for (int j = 0; j < npcData.keywordID.Count; j++)
+            {
+                if (npcData.keywordID[j] == -1)
+                {
+                    total = "...";
+                }
+                else
+                {
+                    //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
+                    total = total.Replace(npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j]));
+                    //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
+                }
+            }
+            //print(total);
+            sentenceTotal.Add(total);
+        }
+        npcDialogueSentences = sentenceTotal;
 
         npcIndex = -1;
         dialogClosed = true;
@@ -198,7 +237,7 @@ public class dialogBox : MonoBehaviour
         {
             return npcDialogueClues;
         }
-        return new string[]{};
+        return new string[] { };
     }
 
     public bool checkRepeatRequest()

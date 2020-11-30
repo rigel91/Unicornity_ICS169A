@@ -11,7 +11,7 @@ public class NPCData : MonoBehaviour
 
     //might need to change this
     [System.NonSerialized] public List<int> keywordID = new List<int>(); //can have multiple keywords; separated by ','
-    [System.NonSerialized] public string[] keywordMeaning; //since some npcs can have more than one keyword, they must have more than one meaning; separated by ','
+    //[System.NonSerialized] public string[] keywordMeaning; //since some npcs can have more than one keyword, they must have more than one meaning; separated by ','
     
     [System.NonSerialized] public List<string> dialogue = new List<string>(); //dialog for journal entries
     [System.NonSerialized] public List<string> fullClue = new List<string>(); //dialog for the npc after solving the puzzle
@@ -19,14 +19,18 @@ public class NPCData : MonoBehaviour
     //Flag Dialogue
     //TODO: add the many flag dialogues
 
-    //array of language gameobjects...
+    //Index	   Language Type	 Word	  Definition
+    //[System.NonSerialized] public int indexID;
+    //[System.NonSerialized] public string languageType;
+    //[System.NonSerialized] public string word;
+    //[System.NonSerialized] public string wordDefinition;
 
     void Awake()
     {
-        //data from the csv file - string: row, object: column
-        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (1)");
+        //data from the character sheet csv file - string: row, object: column
+        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)");
 
-        //set the variables for the NPC
+        //set the variables for the NPC from the data dictionary
         for (var i = 0; i < data.Count; i++)
         {
             if ((data[i]["CharacterID"]).ToString() == characterID)
@@ -47,8 +51,15 @@ public class NPCData : MonoBehaviour
                 string[] id = data[i]["KeywordID"].ToString().Split(new char[] { '~' });
                 for (int j = 0; j < id.Length; j++)
                 {
-                    keywordID.Add(System.Convert.ToInt32(id[j]));
-                    //print("Keyword ID: " + System.Convert.ToInt32(id[j]));
+                    if (id[j] == "NULL")
+                    {
+                        keywordID.Add(-1);
+                    }
+                    else
+                    {
+                        keywordID.Add(System.Convert.ToInt32(id[j]));
+                        //print("Keyword ID: " + System.Convert.ToInt32(id[j]));
+                    }
                 }
 
                 //set the dialogue
@@ -68,6 +79,56 @@ public class NPCData : MonoBehaviour
                 }
             }
         }
+
+        
+    }
+
+    public string GetWordDefinition(int index)
+    {
+        //dictionary from the word/meaning sheet csv file - string: row, object: column
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+
+        //set the variables for the dictionary for words/meaning
+        for (int j = 0; j < definition.Count; j++)
+        {
+            if (System.Convert.ToInt32(definition[j]["Index"]) == index)
+            {
+                return definition[j]["Definition"].ToString();
+            }
+        }
+        return "";
+    }
+
+    public string GetWord(int index)
+    {
+        //dictionary from the word/meaning sheet csv file - string: row, object: column
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+
+        //set the variables for the dictionary for words/meaning
+        for (int j = 0; j < definition.Count; j++)
+        {
+            if (System.Convert.ToInt32(definition[j]["Index"]) == index)
+            {
+                return definition[j]["Word"].ToString();
+            }
+        }
+        return "";
+    }
+
+    public string GetLanguageType(int index)
+    {
+        //dictionary from the word/meaning sheet csv file - string: row, object: column
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+
+        //set the variables for the dictionary for words/meaning
+        for (int j = 0; j < definition.Count; j++)
+        {
+            if (System.Convert.ToInt32(definition[j]["Index"]) == index)
+            {
+                return definition[j]["Language Type"].ToString();
+            }
+        }
+        return "";
     }
 
     void Start()
