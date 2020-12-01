@@ -13,9 +13,12 @@ public class dialogBox : MonoBehaviour
     [Header("Animaton Controllers")]
     public Animator npcSpeechBubbleAnimator;
 
+    //npc reads the full clue dialogue without translations
     [Header("Dialogue sentences")]
     [TextArea]
-    public string[] npcDialogueSentences;
+    //public string[] npcDialogueSentences;
+    //rigel edited this so that the NPC can type the letters in the speech bubble text
+    private List<string> npcDialogueSentences;
 
     [Header("Journal clues")]
     [TextArea]
@@ -26,6 +29,7 @@ public class dialogBox : MonoBehaviour
     private int npcIndex;
 
     public string translatedText;
+    //private List<string> translatedText;
 
     public List<GameObject> foreignWordPopups;
 
@@ -35,8 +39,8 @@ public class dialogBox : MonoBehaviour
     public bool dialogTransitioning;
     private bool bubbleTransitioning;
 
-    //------------------------Getting NPC data from root parent------------------------
-    private Transform NPC;
+    //Getting NPC data
+    private NPCData npcData;
 
     public IEnumerator StartDialogue()
     {
@@ -48,7 +52,6 @@ public class dialogBox : MonoBehaviour
 
     private IEnumerator TypeNPCDialogue()
     {
-        
         foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
         {
             if (dialogTransitioning == true)
@@ -58,13 +61,11 @@ public class dialogBox : MonoBehaviour
             }
         }
         dialogTransitioning = false;
-        
-
     }
 
     private void ContinueNPCDialogue()
     {
-        if (npcIndex < npcDialogueSentences.Length - 1)
+        if (npcIndex < npcDialogueSentences.Count - 1)
         {
             npcIndex++;
             if (!dialogClosed)
@@ -104,7 +105,7 @@ public class dialogBox : MonoBehaviour
             StartCoroutine(closeDialogBox());
             bubbleTransitioning = false;
         }
-        
+
     }
 
     private float getTypingDelay()
@@ -151,7 +152,7 @@ public class dialogBox : MonoBehaviour
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
-        
+
         StartCoroutine(TypeNPCDialogue());
 
         dialogClosed = false;
@@ -164,7 +165,7 @@ public class dialogBox : MonoBehaviour
 
         npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
-        
+
         dialogClosed = true;
         dialogTransitioning = false;
     }
@@ -177,10 +178,32 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Getting NPC data; TODO: this doesnt work since multiple npcs under gameobject; could just go up by four since its fixed
-        //NPC = transform.root.gameObject.GetComponent<Transform>();
-        //print(NPC.name);
+        //rigel edited this part so that this script can get the NPCs dialogue
+        //Getting NPC data
+        npcData = gameObject.GetComponent<NPCData>();
 
+        //set npc dialogue before puzzle
+        List<string> sentenceTotal = new List<string>();
+        for (int i = 0; i < npcData.fullClue.Count; i++)
+        {
+            string total = npcData.fullClue[i];
+            for (int j = 0; j < npcData.keywordID.Count; j++)
+            {
+                if (npcData.keywordID[j] == -1)
+                {
+                    total = "...";
+                }
+                else
+                {
+                    //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
+                    total = total.Replace(npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j]));
+                    //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
+                }
+            }
+            //print(total);
+            sentenceTotal.Add(total);
+        }
+        npcDialogueSentences = sentenceTotal;
 
         npcIndex = -1;
         dialogClosed = true;
@@ -198,7 +221,7 @@ public class dialogBox : MonoBehaviour
         {
             return npcDialogueClues;
         }
-        return new string[]{};
+        return new string[] { };
     }
 
     public bool checkRepeatRequest()
@@ -211,6 +234,7 @@ public class dialogBox : MonoBehaviour
         npcDialogueSentences[0] = translatedText;
     }
 
+    //this puts the symbol and hint word on the right side of the journal(ex: skfh --- the sky)
     public void revealHintSentence()
     {
         hintSentence.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 50);
