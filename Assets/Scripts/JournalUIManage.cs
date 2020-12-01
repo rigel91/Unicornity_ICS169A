@@ -27,8 +27,10 @@ public class JournalUIManage : MonoBehaviour
     public List<Clue> clueList = new List<Clue>();
     public int space = 6;
 
+    //draggable objects that appear on the journal
     public List<GameObject> clueWordList = new List<GameObject>();
 
+    //idk
     public List<GameObject> hintSentenceList = new List<GameObject>();
 
     public List<string> translateHintList = new List<string>();

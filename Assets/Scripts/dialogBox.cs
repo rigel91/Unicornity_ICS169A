@@ -17,9 +17,9 @@ public class dialogBox : MonoBehaviour
     [Header("Dialogue sentences")]
     [TextArea]
     //public string[] npcDialogueSentences;
+    //rigel edited this so that the NPC can type the letters in the speech bubble text
     private List<string> npcDialogueSentences;
 
-    //---------------------------------------------Edit here----------------------------------------
     [Header("Journal clues")]
     [TextArea]
     public string[] npcDialogueClues;
@@ -28,7 +28,6 @@ public class dialogBox : MonoBehaviour
 
     private int npcIndex;
 
-    //---------------------------------------------Edit here----------------------------------------
     public string translatedText;
     //private List<string> translatedText;
 
@@ -51,12 +50,8 @@ public class dialogBox : MonoBehaviour
         StartCoroutine(TypeNPCDialogue());
     }
 
-    //---------------------------------------------Edit here----------------------------------------
     private IEnumerator TypeNPCDialogue()
     {
-        //TODO:type each letter one by one in npcDialogueSentences; check before if need to parse the defined words
-        //print(npcData.GetWordDefinition(npcData.keywordID[0]));
-
         foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
         {
             if (dialogTransitioning == true)
@@ -66,19 +61,8 @@ public class dialogBox : MonoBehaviour
             }
         }
         dialogTransitioning = false;
-
-        //foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
-        //{
-        //    if (dialogTransitioning == true)
-        //    {
-        //        npcDialogueText.text += letter;
-        //        yield return new WaitForSeconds(typingSpeed);
-        //    }
-        //}
-        //dialogTransitioning = false;
     }
 
-    //---------------------------------------------Edit here----------------------------------------
     private void ContinueNPCDialogue()
     {
         if (npcIndex < npcDialogueSentences.Count - 1)
@@ -194,12 +178,12 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //rigel edited this part so that this script can get the NPCs dialogue
         //Getting NPC data
         npcData = gameObject.GetComponent<NPCData>();
 
         //set npc dialogue before puzzle
         List<string> sentenceTotal = new List<string>();
-
         for (int i = 0; i < npcData.fullClue.Count; i++)
         {
             string total = npcData.fullClue[i];
@@ -250,6 +234,7 @@ public class dialogBox : MonoBehaviour
         npcDialogueSentences[0] = translatedText;
     }
 
+    //this puts the symbol and hint word on the right side of the journal(ex: skfh --- the sky)
     public void revealHintSentence()
     {
         hintSentence.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 50);

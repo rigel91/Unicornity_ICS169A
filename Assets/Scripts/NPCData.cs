@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class NPCData : MonoBehaviour
 {
+    /*
+    This script gets the info from each excel(csv file) sheet.  There is one excel sheet called: "Unicornity Character Sheet.xlsx - Sheet1 (2)" which is the csv 
+    file that reads each of the characters information and puts them in the public variables like below.  For some NPC's they can have multiple sentences, keywwords, 
+    definitions of those keywords, etc so I made them into a list of strings or ints and at run time(when you first hit the start button) each of these 
+    public variables gets assigned from the character csv file.
+
+    Another script that this file reads is the "Unicornity Language Translation Sheet.xlsx - Sheet1" file and this file is like the dictionary of the languages;
+    they provide an index for each language, a language type, the untranslated word(the symbols of some language), and the defined words of each symbol.  Instead
+    of assigning these to an individual variable, the main purpose is to use this script to use the functions to get certain data from the csv file.  Funtions like
+    GetWord(index number) gets the undefined/untranslated word from the translation sheet file and needs the words unique index number to get access to the word.
+
+    Each of these csv files are located in the Resources folder under Assets.
+     */
+
     //CharacterID	Level	Languages	KeywordID	KeywordMeaning	Dialog	Full Clue
     public string characterID; //unique id for each NPC; used for the pixeldudesmaker website
     [System.NonSerialized] public int level; //the level that each NPC is located on
@@ -51,6 +65,7 @@ public class NPCData : MonoBehaviour
                 string[] id = data[i]["KeywordID"].ToString().Split(new char[] { '~' });
                 for (int j = 0; j < id.Length; j++)
                 {
+                    //some of the NPC's dont use an untranslated word in their dialogue, so the keywordID variable gets set to -1
                     if (id[j] == "NULL")
                     {
                         keywordID.Add(-1);
@@ -83,6 +98,7 @@ public class NPCData : MonoBehaviour
         
     }
 
+    //gets the defined word from the unique index number
     public string GetWordDefinition(int index)
     {
         //dictionary from the word/meaning sheet csv file - string: row, object: column
@@ -98,7 +114,24 @@ public class NPCData : MonoBehaviour
         }
         return "";
     }
+    //gets the defined word from the untranslated word/symbol
+    public string GetWordDefinition(string word)
+    {
+        //dictionary from the word/meaning sheet csv file - string: row, object: column
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
 
+        //set the variables for the dictionary for words/meaning
+        for (int j = 0; j < definition.Count; j++)
+        {
+            if (definition[j]["Word"].ToString() == word)
+            {
+                return definition[j]["Definition"].ToString();
+            }
+        }
+        return "";
+    }
+
+    //gets the translated word from the unique index number
     public string GetWord(int index)
     {
         //dictionary from the word/meaning sheet csv file - string: row, object: column
@@ -115,6 +148,7 @@ public class NPCData : MonoBehaviour
         return "";
     }
 
+    //gets the language type from the unique index number of each word
     public string GetLanguageType(int index)
     {
         //dictionary from the word/meaning sheet csv file - string: row, object: column

@@ -43,6 +43,9 @@ public class speakTo : MonoBehaviour
         }
     }
 
+    //adds the draggable object in the journal
+    //this gets called in update basically when the speakTo function detects that the player has collided with the trigger for a dialogBox and 
+    //the player has pressed e, meaning that the player is interacting with an NPC with dialog
     private void updateHintInJournal(string newClue)
     {
         foreach (GameObject clueObject in journal.clueWordList)
