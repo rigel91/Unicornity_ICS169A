@@ -183,6 +183,7 @@ public class dialogBox : MonoBehaviour
         npcData = gameObject.GetComponent<NPCData>();
 
         //set npc dialogue before puzzle
+        string dot = "...";
         List<string> sentenceTotal = new List<string>();
         for (int i = 0; i < npcData.fullClue.Count; i++)
         {
@@ -196,7 +197,7 @@ public class dialogBox : MonoBehaviour
                 else
                 {
                     //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
-                    total = total.Replace(npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j]));
+                    total = total.Replace(npcData.GetWordDefinition(npcData.keywordID[j]), dot);
                     //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
                 }
             }
