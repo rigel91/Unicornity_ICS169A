@@ -12,6 +12,12 @@ public class CameraFollow : MonoBehaviour
     [Range(1, 10)]
     public float smoothness;
 
+    //set bounds for the camera
+    public float leftBound;
+    public float rightBound;
+    public float topBound;
+    public float bottomBound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +42,22 @@ public class CameraFollow : MonoBehaviour
         }
         Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothness * Time.deltaTime);
         transform.position = smoothPosition;
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftBound, rightBound), Mathf.Clamp(transform.position.y, bottomBound, topBound), transform.position.z);
+    }
+
+    void OnDrawGizmos()
+    {
+        //drawing boundaries for camera
+        Gizmos.color = Color.green;
+
+        //top line
+        Gizmos.DrawLine(new Vector2(leftBound, topBound), new Vector2(rightBound, topBound));
+        //right line
+        Gizmos.DrawLine(new Vector2(rightBound, topBound), new Vector2(rightBound, bottomBound));
+        //bottom line
+        Gizmos.DrawLine(new Vector2(rightBound, bottomBound), new Vector2(leftBound, bottomBound));
+        //left line
+        Gizmos.DrawLine(new Vector2(leftBound, bottomBound), new Vector2(leftBound, topBound));
     }
 }
