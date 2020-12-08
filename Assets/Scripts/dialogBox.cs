@@ -257,7 +257,43 @@ public class dialogBox : MonoBehaviour
 
     public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
     {
-        npcDialogueSentences[0] = translatedText;
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)");
+
+        for (int i = 0; i < definition.Count; i++)
+        {
+            if (definition[i]["CharacterID"].ToString() == npcData.characterID)
+            {
+                //definition[i]["Dialogue"].ToString();
+                string solvedDialog = definition[i]["Dialogue"].ToString();
+                string[] subs = solvedDialog.Split('~');
+                int j = 0;
+                foreach (string sub in subs)
+                {
+                    if(j < npcDialogueSentences.Count)
+                    {
+                        npcDialogueSentences[j] = sub;
+                    }
+                    else
+                    {
+                        npcDialogueSentences.Add(sub);
+                    }
+                    j++;
+                }
+                //print(solvedDialog);
+                //npcDialogueSentences[0] = solvedDialog;
+
+                //int j = 0;
+                //foreach (var subDialog in solvedDialog)
+                //{
+                //    npcDialogueSentences[j] = subDialog;
+                //    j++;
+                //}
+                //for (int j = 0; j < solvedDialog.Length; j++)
+                //{
+                //    npcDialogueSentences[j] = solvedDialog[j];
+                //}
+            }
+        }
     }
 
     //this puts the symbol and hint word on the right side of the journal(ex: skfh --- the sky)
