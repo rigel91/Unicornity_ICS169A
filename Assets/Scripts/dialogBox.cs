@@ -11,7 +11,7 @@ public class dialogBox : MonoBehaviour
     public TextMeshProUGUI npcDialogueText;
 
     [Header("Animaton Controllers")]
-    public Animator npcSpeechBubbleAnimator;
+    //public Animator npcSpeechBubbleAnimator; this animation is currently disabled
 
     //npc reads the full clue dialogue without translations
     [Header("Dialogue sentences")]
@@ -22,7 +22,7 @@ public class dialogBox : MonoBehaviour
 
     [Header("Journal clues")]
     [TextArea]
-    public string[] npcDialogueClues;
+    [SerializeField] private string[] npcDialogueClues = new string[10]; //max 10 hints per NPC
 
     public GameObject hintSentence;
 
@@ -44,7 +44,7 @@ public class dialogBox : MonoBehaviour
 
     public IEnumerator StartDialogue()
     {
-        npcSpeechBubbleAnimator.SetTrigger("Open");
+        //npcSpeechBubbleAnimator.SetTrigger("Open"); animation is currently disabled
 
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
         StartCoroutine(TypeNPCDialogue());
@@ -131,7 +131,7 @@ public class dialogBox : MonoBehaviour
         }
         dialogTransitioning = true;
 
-        npcSpeechBubbleAnimator.SetTrigger("Open");
+        //npcSpeechBubbleAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
@@ -145,10 +145,10 @@ public class dialogBox : MonoBehaviour
     {
         dialogTransitioning = true;
         npcDialogueText.text = string.Empty;
-        npcSpeechBubbleAnimator.SetTrigger("Close");
+        //npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
-        npcSpeechBubbleAnimator.SetTrigger("Open");
+        //npcSpeechBubbleAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
@@ -163,7 +163,7 @@ public class dialogBox : MonoBehaviour
         dialogTransitioning = true;
         npcDialogueText.text = string.Empty;
 
-        npcSpeechBubbleAnimator.SetTrigger("Close");
+        //npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         dialogClosed = true;
@@ -182,6 +182,23 @@ public class dialogBox : MonoBehaviour
         //Getting NPC data
         npcData = gameObject.GetComponent<NPCData>();
 
+
+        //set the clue word automatically by reading from NPCData
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+
+        int clueIndex = 0;
+        for (int i = 0; i < npcData.keywordID.Count; i++)
+        {
+            for (int j = 0; j < definition.Count; j++)
+            {
+                if (System.Convert.ToInt32(definition[j]["Index"]) == npcData.keywordID[i])
+                {
+                    npcDialogueClues[clueIndex] = definition[j]["Word"].ToString();
+                    clueIndex++;
+                }
+            }
+        }
+
         //set npc dialogue before puzzle
         string dot = "...";
         List<string> sentenceTotal = new List<string>();
@@ -190,6 +207,7 @@ public class dialogBox : MonoBehaviour
             string total = npcData.fullClue[i];
             for (int j = 0; j < npcData.keywordID.Count; j++)
             {
+                
                 if (npcData.keywordID[j] == -1)
                 {
                     total = "...";
@@ -197,7 +215,14 @@ public class dialogBox : MonoBehaviour
                 else
                 {
                     //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
-                    total = dot + npcData.GetWord(npcData.keywordID[j]) + dot;
+                    if (j == 0)
+                    {
+                        total = dot + npcData.GetWord(npcData.keywordID[j]) + dot;
+                    }
+                    if (j != 0)
+                    {
+                        total += dot + npcData.GetWord(npcData.keywordID[j]) + dot; //Erol edited this to add rather than assigning
+                    }
                     //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
                 }
             }
@@ -238,6 +263,9 @@ public class dialogBox : MonoBehaviour
     //this puts the symbol and hint word on the right side of the journal(ex: skfh --- the sky)
     public void revealHintSentence()
     {
-        hintSentence.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 50);
+        if (hintSentence != null)
+        {
+            hintSentence.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 0.2426f);
+        }
     }
 }
