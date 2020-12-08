@@ -11,7 +11,7 @@ public class dialogBox : MonoBehaviour
     public TextMeshProUGUI npcDialogueText;
 
     [Header("Animaton Controllers")]
-    //public Animator npcSpeechBubbleAnimator; this animation is currently disabled
+    public Animator npcSpeechBubbleAnimator;
 
     //npc reads the full clue dialogue without translations
     [Header("Dialogue sentences")]
@@ -44,7 +44,7 @@ public class dialogBox : MonoBehaviour
 
     public IEnumerator StartDialogue()
     {
-        //npcSpeechBubbleAnimator.SetTrigger("Open"); animation is currently disabled
+        npcSpeechBubbleAnimator.SetTrigger("Open");
 
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
         StartCoroutine(TypeNPCDialogue());
@@ -127,11 +127,11 @@ public class dialogBox : MonoBehaviour
     {
         foreach (GameObject fwp in foreignWordPopups)
         {
-            fwp.GetComponent<animatePopup>().playAnimation();
+            //fwp.GetComponent<animatePopup>().playAnimation(); disabled for now
         }
         dialogTransitioning = true;
 
-        //npcSpeechBubbleAnimator.SetTrigger("Open");
+        npcSpeechBubbleAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
@@ -145,10 +145,10 @@ public class dialogBox : MonoBehaviour
     {
         dialogTransitioning = true;
         npcDialogueText.text = string.Empty;
-        //npcSpeechBubbleAnimator.SetTrigger("Close");
+        npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
-        //npcSpeechBubbleAnimator.SetTrigger("Open");
+        npcSpeechBubbleAnimator.SetTrigger("Open");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         npcDialogueText.text = string.Empty;
@@ -163,7 +163,7 @@ public class dialogBox : MonoBehaviour
         dialogTransitioning = true;
         npcDialogueText.text = string.Empty;
 
-        //npcSpeechBubbleAnimator.SetTrigger("Close");
+        npcSpeechBubbleAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(speechBubbleAnimationDelay);
 
         dialogClosed = true;
