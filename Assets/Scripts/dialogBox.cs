@@ -197,7 +197,7 @@ public class dialogBox : MonoBehaviour
                 else
                 {
                     //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
-                    total = total.Replace(npcData.GetWordDefinition(npcData.keywordID[j]), dot);
+                    total = dot + npcData.GetWord(npcData.keywordID[j]) + dot;
                     //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
                 }
             }
