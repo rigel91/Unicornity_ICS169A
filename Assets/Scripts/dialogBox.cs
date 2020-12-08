@@ -182,6 +182,26 @@ public class dialogBox : MonoBehaviour
         //Getting NPC data
         npcData = gameObject.GetComponent<NPCData>();
 
+
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+
+        //set the variables for the dictionary for words/meaning
+        
+        //set the clue word automatically by reading from NPCData
+        int clueIndex = 0;
+        for (int i = 0; i < npcData.keywordID.Count; i++)
+        {
+            for (int j = 0; j < definition.Count; j++)
+            {
+                if (System.Convert.ToInt32(definition[j]["Index"]) == npcData.keywordID[i])
+                {
+                    npcDialogueClues[clueIndex] = definition[j]["Word"].ToString();
+                }
+            }
+            
+        }
+     // npcDialogueClues = npcData.
+
         //set npc dialogue before puzzle
         List<string> sentenceTotal = new List<string>();
         for (int i = 0; i < npcData.fullClue.Count; i++)
