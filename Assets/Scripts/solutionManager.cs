@@ -7,6 +7,8 @@ public class solutionManager : MonoBehaviour
     public solutionBox[] solutionBoxes;
     public dialogBox[] dialogBoxesOnLevel;
 
+    private bool puzzleSolved = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class solutionManager : MonoBehaviour
         }
         if (allCorrect)
         {
+            puzzleSolved = true;
+
             foreach (solutionBox box in solutionBoxes)
             {
                 box.lockPosition();
@@ -46,6 +50,11 @@ public class solutionManager : MonoBehaviour
         {
             db.translateText();
         }
+    }
+
+    public bool isPuzzleSolved()
+    {
+        return puzzleSolved;
     }
 
     
