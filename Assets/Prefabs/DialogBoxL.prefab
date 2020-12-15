@@ -119,13 +119,12 @@ MonoBehaviour:
   typingSpeed: 0.05
   npcDialogueText: {fileID: 6254329103601747117}
   npcSpeechBubbleAnimator: {fileID: 4550621653681662115}
-  npcDialogueSentences:
-  - Good Day jafdjksaklfsaklfnslakfnskla
-  - How are you today
   npcDialogueClues:
   - A
   - 
-  npcIndex: 0
+  hintSentence: {fileID: 0}
+  translatedText: 
+  foreignWordPopups: []
   dialogTransitioning: 0
 --- !u!61 &4550621654439980601
 BoxCollider2D:
@@ -454,8 +453,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c30a780dd9f6e084d912414182689e31, type: 2}
+  m_sharedMaterial: {fileID: -4147081371425597567, guid: c30a780dd9f6e084d912414182689e31, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
