@@ -1,11 +1,16 @@
 ﻿using UnityEngine.Audio;
-using System;
 using UnityEngine;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    public AudioSource sfx;
     public static AudioManager instance;
+
+    //For Randomization in Pitch (Player Voice)
+    public float lowPitchRange = 1.2f;
+    public float highPitchRange = 1.5f;
 
     // Start is called before the first frame update
     void Awake()
@@ -41,5 +46,16 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
+    }
+
+    public void RandomizeSfx(params AudioClip [] clips)
+    {
+        int randomIndex = UnityEngine.Random.Range(0, clips.Length);
+        float randomPitch = UnityEngine.Random.Range(lowPitchRange, highPitchRange);
+
+        //Assignment
+        sfx.pitch = randomPitch;
+        sfx.clip = clips[randomIndex];
+        sfx.Play();
     }
 }

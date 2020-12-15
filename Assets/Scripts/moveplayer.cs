@@ -19,6 +19,11 @@ public class moveplayer : MonoBehaviour
     //for the players animation
     private Animator anim;
 
+    //For Random Jumping Sound Purposes
+    public AudioClip jumpSound1;
+    public AudioClip jumpSound2;
+    public AudioClip jumpSound3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +49,7 @@ public class moveplayer : MonoBehaviour
             anim.SetTrigger("Jump");
 
             //HumanJumpSound -- Instance of Jump happens here.
-            AudioManager.instance.Play("Jump");
+            AudioManager.instance.RandomizeSfx(jumpSound1, jumpSound2, jumpSound3);
         }
         if (isGrounded)
         {
