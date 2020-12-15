@@ -36,7 +36,7 @@ public class JournalUIManage : MonoBehaviour
     public List<string> translateHintList = new List<string>();
     public List<GameObject> hintBoxList = new List<GameObject>();
 
-    public float clueScale = .75f;
+    public float clueScale = .6f;
 
     // Tracking if game is paused.. ACCESSIBLE.
     public static bool GameIsPaused = false;
