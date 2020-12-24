@@ -41,6 +41,12 @@ public class LevelLoader : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
+        //check for intro level
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            LoadNextLevel();
+        }
+
         if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
