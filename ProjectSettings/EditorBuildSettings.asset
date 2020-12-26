@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroLevel.unity
     guid: a07e05203210ab64bad05a7c351903d6
   - enabled: 1
+    path: Assets/Scenes/IntroAnimation.unity
+    guid: e595c63aa8f0bc240a606215bfd6e437
+  - enabled: 1
     path: Assets/Scenes/FirstLevel.unity
     guid: a4e62b3a2bbc5fc40a1c2fa8e27d8e41
   - enabled: 1
