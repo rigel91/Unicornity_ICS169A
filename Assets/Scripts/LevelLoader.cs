@@ -42,7 +42,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator AnimationLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(14);
 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
