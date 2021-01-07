@@ -10,6 +10,8 @@ public class dialogBox : MonoBehaviour
     [Header("Dialogue TMP text")]
     public TextMeshProUGUI npcDialogueText;
 
+    public RectTransform OverlayDBRectTransform = null;
+
     [Header("Animaton Controllers")]
     public Animator npcSpeechBubbleAnimator;
 
@@ -242,12 +244,49 @@ public class dialogBox : MonoBehaviour
 
     public string[] RequestDialog()
     {
-        ContinueNPCDialogue();
-        if (npcIndex >= 0)
+        if (npcSpeechBubbleAnimator == null)
         {
-            return npcDialogueClues;
+            ContinueNPCDialogue2();
+            if (npcIndex >= 0)
+            {
+                return npcDialogueClues;
+            }
         }
+        else
+        {
+            ContinueNPCDialogue();
+            if (npcIndex >= 0)
+            {
+                return npcDialogueClues;
+            }
+        }
+        
         return new string[] { };
+    }
+
+    private void ContinueNPCDialogue2()
+    {
+        if (npcIndex < npcDialogueSentences.Count - 1)
+        {
+            npcIndex++;
+            if (dialogClosed)
+            {
+                //open box immediately (no animation right now)
+                OverlayDBRectTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                dialogClosed = false;
+            }
+             //StartCoroutine(nextDialogBox());
+             npcDialogueText.text = string.Empty;
+             dialogTransitioning = true;
+             StartCoroutine(TypeNPCDialogue());
+        }
+        else
+        {
+            npcIndex = -1;
+            //close box immediately (no animation right now)
+            OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            dialogClosed = true;
+        }
     }
 
     public bool checkRepeatRequest()
