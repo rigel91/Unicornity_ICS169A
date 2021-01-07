@@ -9,6 +9,7 @@ public class moveplayer : MonoBehaviour
     private BoxCollider2D col;
     private Rigidbody2D rb;
     public float movespeed = 0.5f;
+    [System.NonSerialized]
     public float translation;
     public float jumpForce;
     //player move Direction
