@@ -90,7 +90,7 @@ public class moveplayer : MonoBehaviour
         SlopeCheck();
         if (isGrounded && isOnSlope)
         {
-            transform.Translate(translation * -slopeNormalPerp.x / 2, 0, 0);
+            transform.Translate(translation * -slopeNormalPerp.x / 1.5f, 0, 0);
         }
 
 
