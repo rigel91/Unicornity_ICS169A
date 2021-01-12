@@ -55,7 +55,7 @@ public class LevelLoader : MonoBehaviour
             LoadNextLevel();
         }
 
-        if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
+        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
         }
