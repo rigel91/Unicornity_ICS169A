@@ -10,7 +10,9 @@ public class dialogBox : MonoBehaviour
     [Header("Dialogue TMP text")]
     public TextMeshProUGUI npcDialogueText;
 
-    public RectTransform OverlayDBRectTransform = null;
+    //public RectTransform OverlayDBRectTransform;
+
+    private RectTransform OverlayDBRectTransform;
 
     [Header("Animaton Controllers")]
     public Animator npcSpeechBubbleAnimator;
@@ -180,6 +182,8 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        OverlayDBRectTransform = GameObject.FindWithTag("Bottom Dialog Box").GetComponent<RectTransform>();
+
         //rigel edited this part so that this script can get the NPCs dialogue
         //Getting NPC data
         npcData = gameObject.GetComponent<NPCData>();
