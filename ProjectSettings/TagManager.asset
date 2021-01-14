@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - GameManager
+  - Bottom Dialog Box
   layers:
   - Default
   - TransparentFX
