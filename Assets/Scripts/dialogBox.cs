@@ -102,6 +102,13 @@ public class dialogBox : MonoBehaviour
 
     private void requestClose()
     {
+        if (npcSpeechBubbleAnimator == null)
+        {
+            npcIndex = -1;
+            //close box immediately (no animation right now)
+            OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            dialogClosed = true;
+        }
         if (!dialogClosed)
         {
             npcIndex = -1;
