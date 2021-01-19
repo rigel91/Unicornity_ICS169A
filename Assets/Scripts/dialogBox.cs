@@ -176,6 +176,13 @@ public class dialogBox : MonoBehaviour
 
     public void onWalkAway()
     {
+        if (npcSpeechBubbleAnimator == null)
+        {
+            npcIndex = -1;
+            //close box immediately (no animation right now)
+            OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
+            dialogClosed = true;
+        }
         requestClose();
     }
 
@@ -279,7 +286,7 @@ public class dialogBox : MonoBehaviour
                 OverlayDBRectTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 dialogClosed = false;
             }
-             //StartCoroutine(nextDialogBox());
+            //StartCoroutine(nextDialogBox());
              npcDialogueText.text = string.Empty;
              dialogTransitioning = true;
              StartCoroutine(TypeNPCDialogue());
