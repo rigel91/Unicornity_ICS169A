@@ -54,6 +54,10 @@ public class LevelLoader : MonoBehaviour
         {
             LoadNextLevel();
         }
+        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
+        {
+            LoadNextLevel();
+        }
 
         //delete later, this is only for the unfinished second level
         if (SceneManager.GetActiveScene().buildIndex == 4)
@@ -61,9 +65,6 @@ public class LevelLoader : MonoBehaviour
             LoadNextLevel();
         }
 
-        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
-        {
-            LoadNextLevel();
-        }
+        
     }
 }
