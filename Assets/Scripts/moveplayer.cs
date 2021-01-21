@@ -37,6 +37,10 @@ public class moveplayer : MonoBehaviour
     public PhysicsMaterial2D noFriction;
     public PhysicsMaterial2D fullFriction;
 
+    //varaible for climbing ladders
+    public LayerMask ladderLayer;
+    public bool isClimbing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +59,10 @@ public class moveplayer : MonoBehaviour
     {
         translation = Input.GetAxis("Horizontal") * movespeed;
         //animates the character based on movement
-        anim.SetFloat("Speed", Mathf.Abs(translation));
+        if (!isClimbing)
+        { 
+            anim.SetFloat("Speed", Mathf.Abs(translation));
+        }
 
         //player jump
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
@@ -76,6 +83,29 @@ public class moveplayer : MonoBehaviour
             anim.SetBool("IsJumping", true);
         }
 
+        //raycast for climbing ladders
+        RaycastHit2D ladderInfo = Physics2D.Raycast(transform.position, Vector2.up, 2f, ladderLayer);
+        if (ladderInfo.collider != null)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                isClimbing = true;
+            }
+        }
+        else
+        {
+            isClimbing = false;
+        }
+        if (isClimbing)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, movespeed/2f);
+            rb.gravityScale = 0;
+        }
+        else
+        {
+            rb.gravityScale = 4f;
+        }
+
     }
 
     // Update is called once per frame
@@ -85,6 +115,7 @@ public class moveplayer : MonoBehaviour
         float translation = Input.GetAxis("Horizontal") * movespeed;
         translation *= Time.deltaTime;
         transform.Translate(translation, 0, 0);
+        //rb.velocity = new Vector2(translation, rb.velocity.y);
 
         //check for slope
         SlopeCheck();
@@ -107,6 +138,8 @@ public class moveplayer : MonoBehaviour
             sprite.flipX = true;
             isFaceRight = false;
         }
+
+        
     }
 
     private bool IsGrounded()
