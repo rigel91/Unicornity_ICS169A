@@ -218,29 +218,37 @@ public class dialogBox : MonoBehaviour
         for (int i = 0; i < npcData.fullClue.Count; i++)
         {
             string total = npcData.fullClue[i];
-            //for (int j = 0; j < npcData.keywordID.Count; j++)
-            //{
-                
-            //    if (npcData.keywordID[j] == -1)
-            //    {
-            //        total = "...";
-            //    }
-            //    else
-            //    {
-            //        //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
-            //        if (j == 0)
-            //        {
-            //            total = dot + npcData.GetWord(npcData.keywordID[j]) + dot;
-            //        }
-            //        if (j != 0)
-            //        {
-            //            total += dot + npcData.GetWord(npcData.keywordID[j]) + dot; //Erol edited this to add rather than assigning
-            //        }
-            //        //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
-            //    }
-            //}
-            //print(total);
+
+            if (npcData.keywordID[i] == -1)
+            {
+                total = "...";
+            }
             sentenceTotal.Add(total);
+            
+
+                //for (int j = 0; j < npcData.keywordID.Count; j++)
+                //{
+
+                //    if (npcData.keywordID[j] == -1)
+                //    {
+                //        total = "...";
+                //    }
+                //    else
+                //    {
+                //        //npcData.GetWordDefinition(npcData.keywordID[j]), npcData.GetWord(npcData.keywordID[j])
+                //        if (j == 0)
+                //        {
+                //            total = dot + npcData.GetWord(npcData.keywordID[j]) + dot;
+                //        }
+                //        if (j != 0)
+                //        {
+                //            total += dot + npcData.GetWord(npcData.keywordID[j]) + dot; //Erol edited this to add rather than assigning
+                //        }
+                //        //print("Replace word: " + npcData.GetWordDefinition(npcData.keywordID[j]) + " with: " + npcData.GetWord(npcData.keywordID[j]));
+                //    }
+                //}
+                //print(total);
+            
         }
         npcDialogueSentences = sentenceTotal;
 
