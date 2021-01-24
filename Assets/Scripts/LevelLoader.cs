@@ -10,10 +10,14 @@ public class LevelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    //for moving inbetween scences
+    public string exitPoint;
+    private moveplayer player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = FindObjectOfType<moveplayer>();
     }
 
     // Update is called once per frame
@@ -63,8 +67,23 @@ public class LevelLoader : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             LoadNextLevel();
-        }
+        } 
+    }
 
-        
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && Input.GetKey(KeyCode.E))
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(6));
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(4));
+            }
+        }
     }
 }

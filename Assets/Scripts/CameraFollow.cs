@@ -18,9 +18,22 @@ public class CameraFollow : MonoBehaviour
     public float topBound;
     public float bottomBound;
 
+    //camera duplicates
+    private static bool cameraExists;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (!cameraExists)
+        {
+            cameraExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         move = target.GetComponent<moveplayer>();
     }
 
