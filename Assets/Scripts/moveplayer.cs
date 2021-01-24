@@ -41,9 +41,23 @@ public class moveplayer : MonoBehaviour
     public LayerMask ladderLayer;
     public bool isClimbing;
 
+    //checks if a player gameobject exists in a scene, so it doesnt duplicate when DontDestroyOnLoad() is called
+    private static bool playerExists;
+    public string startPoint;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (!playerExists)
+        {
+            playerExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         //gets all of the gameObjects components
         col = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
