@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class moveplayer : MonoBehaviour
 {
@@ -48,14 +49,17 @@ public class moveplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!playerExists)
+        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 6)
         {
-            playerExists = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            if (!playerExists)
+            {
+                playerExists = true;
+                DontDestroyOnLoad(transform.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         //gets all of the gameObjects components

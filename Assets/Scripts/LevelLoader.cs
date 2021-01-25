@@ -32,10 +32,21 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
+    {
+        //player.startPoint = exitPoint;
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
+
+    IEnumerator LoadLevelWOScene(int levelIndex)
     {
         transition.SetTrigger("Start");
 
@@ -46,6 +57,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator AnimationLevel(int levelIndex)
     {
+        //player.startPoint = exitPoint;
         yield return new WaitForSeconds(14);
 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -56,7 +68,7 @@ public class LevelLoader : MonoBehaviour
         //check for intro level
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            LoadNextLevel();
+            StartCoroutine(LoadLevelWOScene(2));
         }
         else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
