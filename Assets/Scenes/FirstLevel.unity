@@ -33903,7 +33903,7 @@ MonoBehaviour:
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
-  hintSentence: {fileID: 0}
+  hintSentence: {fileID: 605366511}
   translatedText: what a nerd
   foreignWordPopups:
   - {fileID: 0}
@@ -111105,7 +111105,7 @@ MonoBehaviour:
   - "\u5929\u7A7A"
   - "\u5929\u7A7A"
   - "\u5929\u7A7A"
-  hintSentence: {fileID: 0}
+  hintSentence: {fileID: 2036505153}
   translatedText: what a nerd
   foreignWordPopups:
   - {fileID: 0}
@@ -112272,7 +112272,7 @@ MonoBehaviour:
   - "\u5929\u7A7A"
   - "\u5929\u7A7A"
   - "\u5929\u7A7A"
-  hintSentence: {fileID: 0}
+  hintSentence: {fileID: 1654893773}
   translatedText: what a nerd
   foreignWordPopups:
   - {fileID: 0}
@@ -121999,7 +121999,7 @@ MonoBehaviour:
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
-  hintSentence: {fileID: 0}
+  hintSentence: {fileID: 1361431670}
   translatedText: what a nerd
   foreignWordPopups:
   - {fileID: 0}
