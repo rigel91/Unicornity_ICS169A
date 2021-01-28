@@ -34204,6 +34204,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: hintSentenceList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 90676831}
@@ -34275,6 +34279,22 @@ PrefabInstance:
       propertyPath: translateHintList.Array.data[3]
       value: magic
       objectReference: {fileID: 0}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: hintSentenceList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1361431670}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: hintSentenceList.Array.data[1]
+      value: 
+      objectReference: {fileID: 605366511}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: hintSentenceList.Array.data[2]
+      value: 
+      objectReference: {fileID: 2036505153}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: hintSentenceList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1654893773}
     - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.033646
