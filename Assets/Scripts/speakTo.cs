@@ -22,7 +22,8 @@ public class speakTo : MonoBehaviour
         {
             if (currentDialog != string.Empty)
             {
-                if (dialogTrigger && !dialogTrigger.checkRepeatRequest())
+                //if (dialogTrigger && !dialogTrigger.checkRepeatRequest())
+                if (dialogTrigger)
                 {
                     string[] newClues = dialogTrigger.RequestDialog();
                     foreach (string newClue in newClues)

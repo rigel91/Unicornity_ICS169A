@@ -102,6 +102,7 @@ public class dialogBox : MonoBehaviour
 
     private void requestClose()
     {
+
         if (npcSpeechBubbleAnimator == null)
         {
             npcIndex = -1;
@@ -263,24 +264,36 @@ public class dialogBox : MonoBehaviour
 
     public string[] RequestDialog()
     {
-        if (npcSpeechBubbleAnimator == null)
+        if (dialogTransitioning)
         {
-            ContinueNPCDialogue2();
-            if (npcIndex >= 0)
-            {
-                return npcDialogueClues;
-            }
+            skipDialog();
         }
+
         else
         {
-            ContinueNPCDialogue();
-            if (npcIndex >= 0)
+            if (npcSpeechBubbleAnimator == null)
             {
-                return npcDialogueClues;
+                ContinueNPCDialogue2();
+                if (npcIndex >= 0)
+                {
+                    return npcDialogueClues;
+                }
             }
+            else
+            {
+                ContinueNPCDialogue();
+                if (npcIndex >= 0)
+                {
+                    return npcDialogueClues;
+                }
+            }
+
         }
-        
+
         return new string[] { };
+
+
+
     }
 
     private void ContinueNPCDialogue2()
@@ -360,6 +373,21 @@ public class dialogBox : MonoBehaviour
         if (hintSentence != null)
         {
             hintSentence.GetComponent<RectTransform>().localScale = new Vector3(.5f, .5f, 0.2426f);
+        }
+    }
+
+    private void skipDialog()
+    {
+        dialogTransitioning = false;
+        requestClose();
+        npcIndex += 1;
+
+        if (npcIndex < npcDialogueSentences.Count - 1)
+        {
+            RequestDialog();
+        }
+        else{
+            npcIndex = -1;
         }
     }
 }
