@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medieval_tiles_free_2.0_41
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -7493714726229975205, guid: e163e28f91c1bcb42aefa98bd0716b13, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.52705586, g: 0.6572024, b: 0.7924528, a: 1}
   m_Transform:
     e00: 1
     e01: 0
