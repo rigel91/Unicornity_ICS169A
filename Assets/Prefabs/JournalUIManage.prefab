@@ -43,4 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c41e86fe45289647bcd1f9bc44373b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clueList: []
+  space: 0
+  clueWordList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hintSentenceList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  translateHintList:
+  - sky
+  - tower
+  - village
+  - magic
+  hintBoxList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  clueScale: 0.35
   pauseMenuUI: {fileID: 0}
