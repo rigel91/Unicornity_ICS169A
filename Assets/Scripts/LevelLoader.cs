@@ -70,32 +70,56 @@ public class LevelLoader : MonoBehaviour
         {
             StartCoroutine(LoadLevelWOScene(2));
         }
+        //delete later, this is only for the unfinished second level
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SceneManager.LoadScene(7);
+            //LoadNextLevel();
+        }
         else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
         }
-
-        //delete later, this is only for the unfinished second level
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            LoadNextLevel();
-        } 
+        
+        
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player" && Input.GetKey(KeyCode.E))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (exitPoint == "Doctor House Enter")
             {
                 player.startPoint = exitPoint;
                 StartCoroutine(LoadLevel(6));
             }
-            else if (SceneManager.GetActiveScene().buildIndex == 6)
+            else if (exitPoint == "Doctor House Exit")
             {
                 player.startPoint = exitPoint;
                 StartCoroutine(LoadLevel(4));
             }
+
+            if (exitPoint == "Church Enter")
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(7));
+            }
+            else if (exitPoint == "Church Exit")
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(4));
+            }
+
+            //if (SceneManager.GetActiveScene().buildIndex == 4)
+            //{
+            //    player.startPoint = exitPoint;
+            //    StartCoroutine(LoadLevel(6));
+            //}
+            //else if (SceneManager.GetActiveScene().buildIndex == 6)
+            //{
+            //    player.startPoint = exitPoint;
+            //    StartCoroutine(LoadLevel(4));
+            //}
         }
     }
 }

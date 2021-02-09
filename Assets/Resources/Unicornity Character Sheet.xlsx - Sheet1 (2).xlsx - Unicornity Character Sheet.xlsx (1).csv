@@ -1,0 +1,22 @@
+CharacterID,Level,Languages,KeywordID,Dialogue,Full Clue,Flag1 Dialogue,Flag2 Dialogue,Flag3 Dialogue,Flag4 Dialogue,Flag5 Dialogue
+a000b0504030003,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+a09000102000302,0,a,0,You...You fell from the sky!~How is that possible?~Am I dreaming?,Gi...gi naltaao nimu!,NULL,NULL,NULL,NULL,NULL
+a01090408060104,0,a,1,"You are hurt, but no one can help you this far from the tower...~Tower, do you understand?~Go to the tower!","I debluao, tap gi chiwech ikuuw mashsas",NULL,NULL,NULL,NULL,NULL
+a000a0405000004,0,a,2~3,Someone in the village must be able to heal you with their magic~Head in the tower's direction.~You'll reach the village~...hopefully.,Nudebe tapech liichaade gi kaatoch ko mashsuasi,NULL,NULL,NULL,NULL,NULL
+a09050704040100,0,a,1~3,"I heard the tower has magic that can do anything...~I've never been that close before, but if the stories are true...",Piiwime aheepimu ko mashsuasi ikaw mashsas,NULL,NULL,NULL,NULL,NULL
+a0c000400000502,0,a,NULL,Do you know the story about the man in the tower?~A bard told me about it a long time ago.~I can barely remember the detail...,Authedao hajieen kaata vi mashsas?,NULL,NULL,NULL,NULL,NULL
+a000e0503050300,1,a,999,"Oh, good, you are okay. If only I could help my daughter with this medicine.~She’s gravely ill but can’t get better without proper food. ","oh drong, tad hyidt'eh. Tsad lij g’om liji dfak frabang wite dfog’a.","Is this… a stone of the tower? If it really is, my daughter is saved! Thank you so much, traveler. I wish you luck in your journey, wherever it may lead.",,,,
+a090a0703060001,1,a,NULL,"We must not rely on magic to solve our problems.~Through faith and diligence, we will be able to restore the crops.~Those who are reliant on magic will not know how to reap God’s rewards.",,"A group of bandits live nearby, on the other side of the village. Please find out if they have anything to do with the crops being destroyed. ","This stone is incredibly dangerous. In order to keep it out of the wrong hands, I will be destroying it.",,,
+a0c1c000b010104,1,a,999,The stone must be somewhere! How much longer will we have to search the village for it?~We’ve already dug up the crops and it wasn’t in the soil! I will not hesitate to turn the whole village upside down if it means I can find the stone!,A chaew dez klo pio! Poik goizer tesis zoj a laeib toitwo a bal de dloi. ,"My daughter… my daughter! With this stone, my daughter can live! The search was not in vain!",,,,
+a0b110007000503,1,a,999,"You, strange traveler! You must know something.~Take this shovel. We’ve looked everywhere and we can’t find the stone.","Deo, otloi doikob! Deo dez za wowoi.",,,,,
+a0d020009040503,1,a,999,"If you know what’s good for you, you’ll bring it to us.","Daol dez za absgiw deog, deo ll dlog dlo lyeib tyi.",,,,,
+,,,,"… The village was known for their plentiful corn harvest, among other crops...","...Nlad liko gorfi tsah hyi glang tsagi, b’im ibeg’d...",, ,,,
+a001b0109040402,1,a,999,I know Daddy can help me get better.,Lji gorfi'kpapa g'om dfak'miiaro.,,,,,
+a00080404000303,1,a,999,Can you get some corn for my daughter?,G'om fi'ktad glang kstar frabang?,,,,,
+a01130704060000,1,a,999,... No one knew how it was destroyed...~Debris from the tower was scattered throughout many villages. ...,...jik dag gorfi kig tsats gok b’ok heddim...,,,,,
+,,,,"Some believed magic to be the root of their success, as stories of a powerful stone were passed down through generations.",,,,,,
+a00030304020000,1,a,NULL,The corn… it’s all gone!,,,,,,
+a000c0304020000,1,a,NULL,Did someone take the corn?,,,,,,
+a00190304020000,1,a,NULL,Why would someone dig up our crops like this?,,,,,,
+a00150304020000,1,a,NULL,I think the magic stone has to do with our crops being ruined.,,,,,,
+a03140704060004,1,a,NULL,"If magic is what kept our crops plentiful, how can we grow the corn without the stone?",,,,,,
