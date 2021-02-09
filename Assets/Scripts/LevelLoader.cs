@@ -102,7 +102,7 @@ public class LevelLoader : MonoBehaviour
             if (exitPoint == "Church Enter")
             {
                 player.startPoint = exitPoint;
-                StartCoroutine(LoadLevel(7));
+                StartCoroutine(LoadLevel(5));
             }
             else if (exitPoint == "Church Exit")
             {

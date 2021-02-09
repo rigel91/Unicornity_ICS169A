@@ -24,11 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SecondLevel.unity
     guid: 25f682443e1cfc44296c8a7316ef867c
   - enabled: 1
-    path: Assets/Scenes/DoctorBuilding.unity
-    guid: cf049b6f01e01cd4990b3a437faa5ec0
-  - enabled: 1
     path: Assets/Scenes/ChurchBuilding.unity
     guid: 19d9600d5c0cc7f4399ce7f44a698c68
+  - enabled: 1
+    path: Assets/Scenes/DoctorBuilding.unity
+    guid: cf049b6f01e01cd4990b3a437faa5ec0
   - enabled: 1
     path: Assets/Scenes/EndDemo.unity
     guid: 10ea97a775070a44298f870295d4499e
