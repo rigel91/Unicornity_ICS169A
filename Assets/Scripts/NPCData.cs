@@ -42,7 +42,8 @@ public class NPCData : MonoBehaviour
     void Awake()
     {
         //data from the character sheet csv file - string: row, object: column
-        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)");
+        //List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)"); //old csv file
+        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (1)");
 
         //set the variables for the NPC from the data dictionary
         for (var i = 0; i < data.Count; i++)
@@ -90,12 +91,10 @@ public class NPCData : MonoBehaviour
                 for (int j = 0; j < clues.Length; j++)
                 {
                     fullClue.Add(clues[j]);
-                    //print("Full Clues: " + clues[j]);
+                    //print("Code: " + data[i]["CharacterID"].ToString() + " Full Clues: " + clues[j]);
                 }
             }
-        }
-
-        
+        }        
     }
 
     //gets the defined word from the unique index number

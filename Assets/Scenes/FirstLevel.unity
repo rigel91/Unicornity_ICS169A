@@ -123610,6 +123610,10 @@ PrefabInstance:
       propertyPath: noFriction
       value: 
       objectReference: {fileID: 6200000, guid: 07b2f19a5d141154ead6ae72dfe4c9a6, type: 2}
+    - target: {fileID: 6327266571196176817, guid: e02221a00b9f0144984476ff0ee1a085, type: 3}
+      propertyPath: ladderLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6327266571196176818, guid: e02221a00b9f0144984476ff0ee1a085, type: 3}
       propertyPath: m_Offset.y
       value: -0.080887616

@@ -70,16 +70,18 @@ public class LevelLoader : MonoBehaviour
         {
             StartCoroutine(LoadLevelWOScene(2));
         }
+        //delete later, this is only for the unfinished second level
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SceneManager.LoadScene(7);
+            //LoadNextLevel();
+        }
         else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
         }
-
-        //delete later, this is only for the unfinished second level
-        if (SceneManager.GetActiveScene().buildIndex == 4)
-        {
-            LoadNextLevel();
-        } 
+        
+        
     }
 
     public void OnTriggerStay2D(Collider2D collision)
