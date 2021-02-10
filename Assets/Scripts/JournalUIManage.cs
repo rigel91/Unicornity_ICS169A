@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JournalUIManage : MonoBehaviour
 {
@@ -43,7 +44,10 @@ public class JournalUIManage : MonoBehaviour
 
     // Reference to Journal Pause UI, brings up UI when appropriately used. (JournalUIPause)
     public GameObject pauseMenuUI;
-   
+
+    //List of NPC data panels for the associated level.
+    public List<GameObject> npcPanel = new List<GameObject>();
+
     //Func that will pause gameplay and bring up UI for Journal/Puzzle Solving
     public void JournalUIPause()
     {
@@ -72,7 +76,7 @@ public class JournalUIManage : MonoBehaviour
     //Adding Clues to JUI
 
     // This is Daniel's version of a clue-adding function
-    public void Add (Clue clue)
+    public void Add(Clue clue)
     {
         if (clue.clueKnown == false)
         {
@@ -109,7 +113,7 @@ public class JournalUIManage : MonoBehaviour
     }
 
     //Removing Clues (Once level completed...?)
-    public void Remove (Clue clue)
+    public void Remove(Clue clue)
     {
         clueList.Remove(clue);
         if (onItemChangedCallBack != null)
@@ -119,6 +123,7 @@ public class JournalUIManage : MonoBehaviour
     private void spawnClueInJournal(int clueIndex)
     {
         clueWordList[clueIndex].GetComponent<RectTransform>().localScale = new Vector3(clueScale, clueScale, 1);
+        npcPanel[clueIndex].SetActive(true);
     }
 
     public void revealHint(string hintText)

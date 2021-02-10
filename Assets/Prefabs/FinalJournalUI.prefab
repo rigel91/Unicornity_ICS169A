@@ -2793,7 +2793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9036511829060558319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3738,7 +3738,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 115.64801, y: 29.77635}
+  m_Offset: {x: 115.75461, y: 29.669739}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3749,7 +3749,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40.48877, y: 10.007839}
+  m_Size: {x: 38.569702, y: 8.941698}
   m_EdgeRadius: 0
 --- !u!114 &9036511829405106624
 MonoBehaviour:
@@ -6255,7 +6255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9036511829822867492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10744,7 +10744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9036511830951735312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11259,6 +11259,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 9036511829068384678}
     m_Modifications:
     - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: npcPanel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
       propertyPath: clueWordList.Array.data[0]
       value: 
       objectReference: {fileID: 9036511830477126467}
@@ -11314,6 +11318,18 @@ PrefabInstance:
       propertyPath: clueScale
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: npcPanel.Array.data[0]
+      value: 
+      objectReference: {fileID: 9036511829822867493}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: npcPanel.Array.data[1]
+      value: 
+      objectReference: {fileID: 9036511830951735313}
+    - target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
+      propertyPath: npcPanel.Array.data[2]
+      value: 
+      objectReference: {fileID: 9036511829060558304}
     - target: {fileID: 2359566627518338980, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.033646

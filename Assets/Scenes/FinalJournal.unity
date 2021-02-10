@@ -113615,10 +113615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 488703272823192018, guid: c0a9d4e6225f86c4f90515bf53085989, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9036511828930443400, guid: c0a9d4e6225f86c4f90515bf53085989, type: 3}
       propertyPath: dialogBoxesOnLevel.Array.data[0]
       value: 
