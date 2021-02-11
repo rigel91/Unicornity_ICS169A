@@ -395,7 +395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -376274520952795310, guid: c5ac16ae922fd1c49872ab370e1b75c9, type: 3}
         m_TargetAssemblyTypeName: JournalUIManage, Assembly-CSharp
         m_MethodName: JournalUIPause
         m_Mode: 1
