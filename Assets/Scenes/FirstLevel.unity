@@ -5015,7 +5015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 502665226}
-  puzzleComplete: {fileID: 0}
+  puzzleComplete: {fileID: 997149470}
   transitionTime: 1
   exitPoint: 
 --- !u!61 &393493010
