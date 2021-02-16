@@ -28,6 +28,8 @@ public class JournalUIManage : MonoBehaviour
     public List<Clue> clueList = new List<Clue>();
     public int space = 6;
 
+    public List<string> foundClueList = new List<string>();
+
     //draggable objects that appear on the journal
     public List<GameObject> clueWordList = new List<GameObject>();
 
@@ -107,8 +109,27 @@ public class JournalUIManage : MonoBehaviour
             if (clueObject.GetComponent<clueWord>().clueText == clueWord)
             {
                 spawnClueInJournal(clueIndex);
+                foundClueList.Add(clueWord);
+
             }
             clueIndex++;
+        }
+    }
+
+    public void AddNpcPanel(int npcID)
+    {
+        if (npcID - 1 < npcPanel.Capacity) //if the npcID provided is actually in the list (if it was not found in the list, the npcID provided will be equal to the capacity of the list)
+        {
+            //find the appropriate npcPanel with this npcID
+            int panelIndex = 0;
+            foreach (GameObject panel in npcPanel)
+            {
+                if (panel.GetComponent<npcSpeakingTag>().npcSpeakingID == npcID)
+                {
+                    spawnNpcPanelInJournal(panelIndex);
+                }
+                panelIndex++;
+            }
         }
     }
 
@@ -123,7 +144,12 @@ public class JournalUIManage : MonoBehaviour
     private void spawnClueInJournal(int clueIndex)
     {
         clueWordList[clueIndex].GetComponent<RectTransform>().localScale = new Vector3(clueScale, clueScale, 1);
-        npcPanel[clueIndex].SetActive(true);
+        
+    }
+
+    private void spawnNpcPanelInJournal(int panelIndex)
+    {
+        npcPanel[panelIndex].SetActive(true);
     }
 
     public void revealHint(string hintText)

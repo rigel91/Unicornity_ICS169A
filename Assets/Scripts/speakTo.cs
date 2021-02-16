@@ -9,6 +9,8 @@ public class speakTo : MonoBehaviour
 
     public JournalUIManage journal;
 
+    public List<string> npcIDs = new List<string>{};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +32,29 @@ public class speakTo : MonoBehaviour
                     {
                         if (newClue != string.Empty)
                         {
-                            if (!checkJournalForClue(newClue))
+                            //checkJournalForClue(newClue);
+                            if(true)
                             {
                                 journal.AddClue(newClue);
                                 updateHintInJournal(newClue);
+                                
+
+                                //find the npcIndex of the npc so that we know which panel to use
+                                string npcID = dialogTrigger.GetComponent<NPCData>().characterID;
+                                int panelIndex = 0;
+                                foreach (string id in npcIDs)
+                                {
+                                    if (npcID == id)
+                                    {
+                                        break;
+                                    }
+                                    panelIndex++;
+                                }
+                                print(panelIndex);
+                                journal.AddNpcPanel(panelIndex);
+
+                                
+                                
                                 dialogTrigger.revealHintSentence();
                             }
                         }
@@ -60,11 +81,11 @@ public class speakTo : MonoBehaviour
         }
     }
 
-    private bool checkJournalForClue(string newClue) //currently not helpful since the way clues are made to appear in the journal (change the size from 0 to 1) cannot make a clue appear more than once
+    private bool checkJournalForClue(string newClue) //being modified so that if the word is already in the journal, it will instead look for a second copy of the word. Currently only works for 1 duplicate but I can make this work recursively
     {
-        foreach (Clue clue in journal.clueList)
+        foreach (string clueCheck in journal.foundClueList)
         {
-            if (newClue == clue.cName)
+            if (newClue == clueCheck)
             {
                 return true;
             }
