@@ -28,6 +28,8 @@ public class dialogBox : MonoBehaviour
     [TextArea]
     [SerializeField] private string[] npcDialogueClues = new string[10]; //max 10 hints per NPC
 
+    public string[] workaroundDialogClues = new string[10]; //this is a temporary workaround i am using to let me spawn duplicate words
+
     public GameObject hintSentence;
 
     private int npcIndex;
@@ -276,7 +278,8 @@ public class dialogBox : MonoBehaviour
                 ContinueNPCDialogue2();
                 if (npcIndex >= 0)
                 {
-                    return npcDialogueClues;
+                    //return npcDialogueClues;
+                    return workaroundDialogClues;
                 }
             }
             else
@@ -284,7 +287,8 @@ public class dialogBox : MonoBehaviour
                 ContinueNPCDialogue();
                 if (npcIndex >= 0)
                 {
-                    return npcDialogueClues;
+                    //return npcDialogueClues;
+                    return workaroundDialogClues;
                 }
             }
 
