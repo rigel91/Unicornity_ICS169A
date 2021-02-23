@@ -7,6 +7,11 @@ public class dialogBox : MonoBehaviour
 {
     [SerializeField] private float typingSpeed = 0.05f;
 
+    public GameObject pressEPrompt;
+    public bool hasUnreadDialog;
+
+
+
     [Header("Dialogue TMP text")]
     public TextMeshProUGUI npcDialogueText;
 
@@ -104,6 +109,7 @@ public class dialogBox : MonoBehaviour
 
     private void requestClose()
     {
+        hideSpeechPrompt();
 
         if (npcSpeechBubbleAnimator == null)
         {
@@ -192,6 +198,9 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hasUnreadDialog = true;
+        hideSpeechPrompt();
+
         OverlayDBRectTransform = GameObject.FindWithTag("Bottom Dialog Box").GetComponent<RectTransform>();
 
         //rigel edited this part so that this script can get the NPCs dialogue
@@ -318,6 +327,9 @@ public class dialogBox : MonoBehaviour
         }
         else
         {
+            hasUnreadDialog = false;
+            hideSpeechPrompt();
+
             npcIndex = -1;
             //close box immediately (no animation right now)
             OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
@@ -332,6 +344,8 @@ public class dialogBox : MonoBehaviour
 
     public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
     {
+        resetSpeechPrompt();
+
         List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)");
 
         for (int i = 0; i < definition.Count; i++)
@@ -392,6 +406,35 @@ public class dialogBox : MonoBehaviour
         }
         else{
             npcIndex = -1;
+        }
+    }
+
+    private void hideSpeechPrompt()
+    {
+        if (pressEPrompt != null)
+        {
+            pressEPrompt.SetActive(false);
+        }   
+    }
+
+    private void resetSpeechPrompt()
+    {
+        if (pressEPrompt != null)
+        {
+            pressEPrompt.SetActive(true);
+            hasUnreadDialog = true;
+        }
+    }
+
+    //called when the player walks in range of the NPC
+    public void showSpeechPrompt()
+    {
+        if (pressEPrompt != null)
+        {
+            if (hasUnreadDialog)
+            {
+                pressEPrompt.SetActive(true);
+            }
         }
     }
 }
