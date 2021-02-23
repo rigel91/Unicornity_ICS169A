@@ -24,6 +24,10 @@ public class JournalUIManage : MonoBehaviour
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
 
+    //used for the notification badge on the journal button
+    public GameObject journalNotificationBadge;
+
+
     //Journal Screen Data
     public List<Clue> clueList = new List<Clue>();
     public int space = 6;
@@ -61,6 +65,7 @@ public class JournalUIManage : MonoBehaviour
         else
         {
             pauseMenuUI.SetActive(true);
+            journalNotificationBadge.GetComponent<journalNotificationManager>().resetNewClues();
             //Time.timeScale = 0f;  Changing the time scale to 0 causes box colliders in the Journal UI to not register. Cannot freeze time
             GameIsPaused = true;
         }
@@ -111,6 +116,7 @@ public class JournalUIManage : MonoBehaviour
                 spawnClueInJournal(clueIndex);
                 foundClueList.Add(clueWord);
 
+
             }
             clueIndex++;
         }
@@ -149,7 +155,14 @@ public class JournalUIManage : MonoBehaviour
 
     private void spawnNpcPanelInJournal(int panelIndex)
     {
-        npcPanel[panelIndex].SetActive(true);
+        if (!npcPanel[panelIndex].activeSelf)
+        {
+            //increments newClue tracker in journalNotificationBadge so that the notification badge will appear
+            journalNotificationBadge.GetComponent<journalNotificationManager>().incrementNewClues();
+
+            npcPanel[panelIndex].SetActive(true);
+        }
+        
     }
 
     public void revealHint(string hintText)

@@ -100,6 +100,7 @@ public class speakTo : MonoBehaviour
         {
             dialogTrigger = collision.GetComponent<dialogBox>();
             currentDialog = "something";
+            dialogTrigger.showSpeechPrompt();
         }
     }
 
