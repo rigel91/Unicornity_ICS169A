@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         //This will change.. will house the games overall theme music for start-up menu.
-        Play("Village");
+        //Play("Village");
     }
 
     public void Play(string name)
