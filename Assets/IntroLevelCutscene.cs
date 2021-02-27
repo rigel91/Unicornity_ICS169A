@@ -8,6 +8,7 @@ public class IntroLevelCutscene : MonoBehaviour
     public GameObject lights;
     public GameObject player;
     public AudioManager audio;
+    public GameObject dialogue;
     public TextMeshProUGUI text;
     private bool flag;
     public bool endConversation;
@@ -22,9 +23,11 @@ public class IntroLevelCutscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        endConversation = dialogue.GetComponent<dialogBox>().close;
         if (endConversation)
         {
             lights.SetActive(false);
+            dialogue.SetActive(false);
             audio.GetComponent<AudioSource>().Play();
             player.GetComponent<moveplayer>().enabled = true;
             player.GetComponent<moveplayer>().movespeed = 10;
