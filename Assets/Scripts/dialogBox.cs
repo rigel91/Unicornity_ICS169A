@@ -52,6 +52,7 @@ public class dialogBox : MonoBehaviour
 
     //Getting NPC data
     private NPCData npcData;
+    public bool close;
 
     public IEnumerator StartDialogue()
     {
@@ -102,6 +103,8 @@ public class dialogBox : MonoBehaviour
 
     private void requestOpen()
     {
+        close = false;
+
         bubbleTransitioning = true;
         StartCoroutine(openDialogBox());
         bubbleTransitioning = false;
@@ -109,6 +112,8 @@ public class dialogBox : MonoBehaviour
 
     private void requestClose()
     {
+        //close = true;
+
         hideSpeechPrompt();
 
         if (npcSpeechBubbleAnimator == null)
@@ -180,6 +185,7 @@ public class dialogBox : MonoBehaviour
 
     private IEnumerator closeDialogBox()
     {
+
         dialogTransitioning = true;
         npcDialogueText.text = string.Empty;
 
@@ -198,6 +204,8 @@ public class dialogBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        close = false;
+
         hasUnreadDialog = true;
         hideSpeechPrompt();
 
@@ -261,6 +269,14 @@ public class dialogBox : MonoBehaviour
                 //}
                 //print(total);
             
+        }
+        if (npcData.characterID == "God")
+        {
+            sentenceTotal.Add("Hello, I am God!");
+            sentenceTotal.Add("Investigate the Tower and its power.");
+            sentenceTotal.Add("You will come across different languages and people.");
+            sentenceTotal.Add("Take this journal to help you find out who is behind the Towers power.");
+            sentenceTotal.Add("Jump off the edge when you are done.");
         }
         npcDialogueSentences = sentenceTotal;
 
@@ -334,6 +350,8 @@ public class dialogBox : MonoBehaviour
             //close box immediately (no animation right now)
             OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             dialogClosed = true;
+
+            close = true;
         }
     }
 
