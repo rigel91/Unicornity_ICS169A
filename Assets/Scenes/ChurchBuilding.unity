@@ -11985,10 +11985,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 2029023152}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
+  - "\u5929\u7A7A"
+  workaroundDialogClues:
+  - gorfi 2
+  - heddim
   hintSentence: {fileID: 0}
   translatedText: what a nerd
   foreignWordPopups:
@@ -12176,10 +12182,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 2029023152}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
+  workaroundDialogClues:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   hintSentence: {fileID: 0}
   translatedText: what a nerd
   foreignWordPopups:

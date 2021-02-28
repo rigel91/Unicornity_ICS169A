@@ -7085,6 +7085,7 @@ MonoBehaviour:
   - {fileID: 6978432822541001824}
   dialogBoxesOnLevel:
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &833218975567847901
 GameObject:
   m_ObjectHideFlags: 0
@@ -9798,6 +9799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c41e86fe45289647bcd1f9bc44373b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  journalNotificationBadge: {fileID: 0}
   clueList: []
   space: 0
   foundClueList: []
@@ -13857,7 +13859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6978432821963845869
 RectTransform:
   m_ObjectHideFlags: 0
