@@ -1420,21 +1420,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 605859590}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
+  - "\u5929\u7A7A"
   workaroundDialogClues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - g'om 2
+  - glang
   hintSentence: {fileID: 0}
   translatedText: what a nerd
   foreignWordPopups:
@@ -13780,21 +13775,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 605859590}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
   - "\u5929\u7A7A"
+  - "\u5929\u7A7A"
+  - "\u5929\u7A7A"
   workaroundDialogClues:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - gorfi
+  - g'om 3
+  - dfak 2
   hintSentence: {fileID: 0}
   translatedText: what a nerd
   foreignWordPopups:
