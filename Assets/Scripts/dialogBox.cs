@@ -217,20 +217,20 @@ public class dialogBox : MonoBehaviour
 
 
         //set the clue word automatically by reading from NPCData
-        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
+        //List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Language Translation Sheet.xlsx - Sheet1");
 
-        int clueIndex = 0;
-        for (int i = 0; i < npcData.keywordID.Count; i++)
-        {
-            for (int j = 0; j < definition.Count; j++)
-            {
-                if (System.Convert.ToInt32(definition[j]["Index"]) == npcData.keywordID[i])
-                {
-                    npcDialogueClues[clueIndex] = definition[j]["Word"].ToString();
-                    clueIndex++;
-                }
-            }
-        }
+        //int clueIndex = 0;
+        //for (int i = 0; i < npcData.keywordID.Count; i++)
+        //{
+        //    for (int j = 0; j < definition.Count; j++)
+        //    {
+        //        if (System.Convert.ToInt32(definition[j]["Index"]) == npcData.keywordID[i])
+        //        {
+        //            npcDialogueClues[clueIndex] = definition[j]["Word"].ToString();
+        //            clueIndex++;
+        //        }
+        //    }
+        //}
 
         //set npc dialogue before puzzle
         string dot = "...";
@@ -364,7 +364,7 @@ public class dialogBox : MonoBehaviour
     {
         resetSpeechPrompt();
 
-        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)");
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (2)");
 
         for (int i = 0; i < definition.Count; i++)
         {

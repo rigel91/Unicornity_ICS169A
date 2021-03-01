@@ -30,25 +30,38 @@ public class CameraFollow : MonoBehaviour
         move = target.GetComponent<moveplayer>();
     }
 
+    private void Update()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 targetPosition = target.position + gm.offset;
-        if (move.translation == 0)
+        if (target == null)
         {
-            targetPosition = target.position + gm.offset;
-        }
-        else if (move.isFaceRight)
-        {
-            targetPosition.x += gm.xOffset;
+            //destroyed object will throw an error, need to check if its null
         }
         else
         {
-            targetPosition.x -= gm.xOffset;
-        }
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, gm.smoothness * Time.deltaTime);
-        transform.position = smoothPosition;
+            Vector3 targetPosition = target.position + gm.offset;
+            if (move.translation == 0)
+            {
+                targetPosition = target.position + gm.offset;
+            }
+            else if (move.isFaceRight)
+            {
+                targetPosition.x += gm.xOffset;
+            }
+            else
+            {
+                targetPosition.x -= gm.xOffset;
+            }
+            Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, gm.smoothness * Time.deltaTime);
+            transform.position = smoothPosition;
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, gm.leftBound, gm.rightBound), Mathf.Clamp(transform.position.y, gm.bottomBound, gm.topBound), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, gm.leftBound, gm.rightBound), Mathf.Clamp(transform.position.y, gm.bottomBound, gm.topBound), transform.position.z);
+
+        }
     }
 }

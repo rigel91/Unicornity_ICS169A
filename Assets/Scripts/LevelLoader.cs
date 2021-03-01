@@ -26,7 +26,13 @@ public class LevelLoader : MonoBehaviour
         //check for animation level
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            StartCoroutine(AnimationLevel(SceneManager.GetActiveScene().buildIndex + 1));
+            //falling animation level
+            StartCoroutine(AnimationLevel(14));
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 8)
+        {
+            //tower animation level
+            StartCoroutine(AnimationLevel(6));
         }
     }
 
@@ -55,10 +61,10 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
-    IEnumerator AnimationLevel(int levelIndex)
+    IEnumerator AnimationLevel(int time)
     {
         //player.startPoint = exitPoint;
-        yield return new WaitForSeconds(14);
+        yield return new WaitForSeconds(time);
 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
@@ -73,15 +79,18 @@ public class LevelLoader : MonoBehaviour
         //delete later, this is only for the unfinished second level
         else if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            SceneManager.LoadScene(7);
+            StartCoroutine(LoadLevelWOScene(7));
+            //SceneManager.LoadScene(7);
             //LoadNextLevel();
         }
-        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            StartCoroutine(LoadLevelWOScene(8));
+        }
+        else if (collision.gameObject.tag == "Player") //&& puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
-        }
-        
-        
+        }               
     }
 
     public void OnTriggerStay2D(Collider2D collision)
