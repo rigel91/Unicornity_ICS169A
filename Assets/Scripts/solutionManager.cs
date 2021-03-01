@@ -5,14 +5,17 @@ using UnityEngine;
 public class solutionManager : MonoBehaviour
 {
     public solutionBox[] solutionBoxes;
-    public dialogBox[] dialogBoxesOnLevel;
+    //public dialogBox[] dialogBoxesOnLevel;
 
-    private bool puzzleSolved = false;
+    //TEMPORARY FOR TESTING set to start at true
+    private bool puzzleSolved = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        revealTextIfSolved();
+
+
     }
 
     // Update is called once per frame
@@ -38,12 +41,13 @@ public class solutionManager : MonoBehaviour
             foreach (solutionBox box in solutionBoxes)
             {
                 box.lockPosition();
-                revealAllText();
+                revealTextIfSolved();
             }
             //Debug.Log("puzzle solved!");
         }
     }
 
+    /*
     private void revealAllText()
     {
         foreach (dialogBox db in dialogBoxesOnLevel)
@@ -51,10 +55,29 @@ public class solutionManager : MonoBehaviour
             db.translateText();
         }
     }
+    */
 
     public bool isPuzzleSolved()
     {
         return puzzleSolved;
+    }
+
+    public void revealTextIfSolved()
+    {
+        //call this every time a new scene is loaded and immediately when the puzzle is first solved
+        if (puzzleSolved)
+        {
+            GameObject[] DBsToReveal = GameObject.FindGameObjectsWithTag(this.tag);
+            print("DBs to Reveal: " + DBsToReveal.Length);
+
+            foreach (GameObject g in DBsToReveal)
+            {
+                if (g.GetComponent<dialogBox>() != null)
+                {
+                    g.GetComponent<dialogBox>().translateText();
+                }
+            }
+        }
     }
 
     
