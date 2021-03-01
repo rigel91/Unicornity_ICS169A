@@ -49,7 +49,8 @@ public class moveplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 6)
+        if (SceneManager.GetActiveScene().buildIndex == 4) //|| SceneManager.GetActiveScene().buildIndex == 7)
+        //if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 6)
         {
             if (!playerExists)
             {
@@ -58,7 +59,19 @@ public class moveplayer : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(GameObject.Find("Player1"));
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            if (!playerExists)
+            {
+                playerExists = true;
+                DontDestroyOnLoad(transform.gameObject);
+            }
+            else
+            {
+                Destroy(GameObject.Find("Player2"));
             }
         }
 

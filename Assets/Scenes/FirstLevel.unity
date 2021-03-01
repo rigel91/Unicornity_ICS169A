@@ -9197,7 +9197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327266571196176829, guid: e02221a00b9f0144984476ff0ee1a085, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 6327266571196176829, guid: e02221a00b9f0144984476ff0ee1a085, type: 3}
       propertyPath: m_TagString
@@ -9781,6 +9781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 694515634}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues: []
@@ -9800,6 +9802,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &520954334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114975,6 +114978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 694515634}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
@@ -114986,6 +114991,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!1 &1107320940
 GameObject:
   m_ObjectHideFlags: 0
@@ -116207,6 +116213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 694515634}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
@@ -116220,6 +116228,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!1 &1266519413
 GameObject:
   m_ObjectHideFlags: 0
@@ -120356,6 +120365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 694515634}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
@@ -120367,6 +120378,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!1 &1657380819
 GameObject:
   m_ObjectHideFlags: 0
@@ -122435,6 +122447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typingSpeed: 0.05
+  pressEPrompt: {fileID: 0}
+  hasUnreadDialog: 0
   npcDialogueText: {fileID: 694515634}
   npcSpeechBubbleAnimator: {fileID: 0}
   npcDialogueClues:
@@ -122448,6 +122462,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!1 &1928594951
 GameObject:
   m_ObjectHideFlags: 0
@@ -122611,6 +122626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c41e86fe45289647bcd1f9bc44373b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  journalNotificationBadge: {fileID: 0}
   clueList: []
   space: 0
   foundClueList: []
