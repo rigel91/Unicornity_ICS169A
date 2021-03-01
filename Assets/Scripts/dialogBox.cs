@@ -370,6 +370,7 @@ public class dialogBox : MonoBehaviour
         {
             if (definition[i]["CharacterID"].ToString() == npcData.characterID)
             {
+                
                 //definition[i]["Dialogue"].ToString();
                 string solvedDialog = definition[i]["Dialogue"].ToString();
                 string[] subs = solvedDialog.Split('~');

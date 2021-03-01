@@ -11952,7 +11952,7 @@ GameObject:
   - component: {fileID: 1382618772}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12000,6 +12000,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1382618772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12204,6 +12205,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1423204168
 MonoBehaviour:
   m_ObjectHideFlags: 0
