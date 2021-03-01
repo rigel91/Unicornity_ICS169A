@@ -87,7 +87,7 @@ public class LevelLoader : MonoBehaviour
         {
             StartCoroutine(LoadLevelWOScene(8));
         }
-        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
+        else if (collision.gameObject.tag == "Player") //&& puzzleComplete.isPuzzleSolved())
         {
             LoadNextLevel();
         }               

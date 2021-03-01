@@ -1,7 +1,0 @@
-CharacterID,Level,Languages,KeywordID,Dialogue,Full Clue,Flag1 Dialogue,Flag2 Dialogue,Flag3 Dialogue,Flag4 Dialogue,Flag5 Dialogue
-a000b0504030003,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-a09000102000302,0,a,0,You...You fell from the sky!~How is that possible?~Am I dreaming?,Gi...gi naltaao nimu,NULL,NULL,NULL,NULL,NULL
-a01090408060104,0,a,1,"You are hurt, but no one can help you this far from the tower...~Tower, do you understand?~Go to the tower!","I debluao, tap gi chiwech ikuuw mashsas",NULL,NULL,NULL,NULL,NULL
-a000a0405000004,0,a,2~3,Someone in the village must be able to heal you with their magic~Head in the tower's direction.~You'll reach the village~...hopefully.,nudebe tapech liichaade gi kaatoch ko mashsuasi,NULL,NULL,NULL,NULL,NULL
-a09050704040100,0,a,1~3,"I heard the tower has magic that can do anything...~I've never been that close before, but if the stories are true...",piiwime aheepimu ko mashsuasi ikaw mashsas,NULL,NULL,NULL,NULL,NULL
-a0c000400000502,0,a,NULL,Do you know the story about the man in the tower?~A bard told me about it a long time ago.~I can barely remember the detail...,NULL,NULL,NULL,NULL,NULL,NULL
