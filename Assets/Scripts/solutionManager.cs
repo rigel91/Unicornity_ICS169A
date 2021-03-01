@@ -7,14 +7,11 @@ public class solutionManager : MonoBehaviour
     public solutionBox[] solutionBoxes;
     //public dialogBox[] dialogBoxesOnLevel;
 
-    //TEMPORARY FOR TESTING set to start at true
-    private bool puzzleSolved = true;
+    private bool puzzleSolved = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        revealTextIfSolved();
-
 
     }
 
@@ -68,7 +65,6 @@ public class solutionManager : MonoBehaviour
         if (puzzleSolved)
         {
             GameObject[] DBsToReveal = GameObject.FindGameObjectsWithTag(this.tag);
-            print("DBs to Reveal: " + DBsToReveal.Length);
 
             foreach (GameObject g in DBsToReveal)
             {
