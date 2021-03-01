@@ -8,6 +8,7 @@ TagManager:
   - GameManager
   - Bottom Dialog Box
   - Journal Button
+  - puzzle 2
   layers:
   - Default
   - TransparentFX
