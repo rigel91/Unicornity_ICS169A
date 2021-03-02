@@ -28840,7 +28840,7 @@ GameObject:
   - component: {fileID: 1046285436}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28886,6 +28886,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1046285436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29035,7 +29036,7 @@ GameObject:
   - component: {fileID: 1077989746}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29089,6 +29090,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1077989746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104666,7 +104668,7 @@ GameObject:
   - component: {fileID: 1494510381}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104714,6 +104716,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1494510381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105351,7 +105354,7 @@ GameObject:
   - component: {fileID: 1629776403}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105399,6 +105402,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &1629776403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113487,7 +113491,7 @@ GameObject:
   - component: {fileID: 2065249829}
   m_Layer: 0
   m_Name: Dialog Box Manager
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113533,6 +113537,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!114 &2065249829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124624,12 +124629,6 @@ MonoBehaviour:
   - {fileID: 9036511830410346143}
   - {fileID: 1853790528}
   - {fileID: 418162771}
-  dialogBoxesOnLevel:
-  - {fileID: 2065249828}
-  - {fileID: 1046285435}
-  - {fileID: 1494510380}
-  - {fileID: 1629776402}
-  - {fileID: 1077989745}
 --- !u!1 &9036511830883960791
 GameObject:
   m_ObjectHideFlags: 0
@@ -124642,7 +124641,7 @@ GameObject:
   - component: {fileID: 9036511830883960790}
   m_Layer: 0
   m_Name: Solution Checker
-  m_TagString: Untagged
+  m_TagString: puzzle 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
