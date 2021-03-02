@@ -51,7 +51,8 @@ public class IntroLevelCutscene : MonoBehaviour
             //need to mute player move sound
             audio.GetComponent<AudioSource>().Stop();
             player.GetComponent<moveplayer>().movespeed = 0;
-            text.enabled = false;
+            text.fontSize = 64;
+            text.text = "Press E to talk";
 
             StartCoroutine(cutscene());
         }
