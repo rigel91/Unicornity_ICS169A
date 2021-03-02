@@ -2950,6 +2950,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!4 &286874186
 Transform:
   m_ObjectHideFlags: 0
@@ -16047,7 +16048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: WASD to move
+  m_text: Press A and D to move
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16735,6 +16736,7 @@ MonoBehaviour:
   foreignWordPopups:
   - {fileID: 0}
   dialogTransitioning: 0
+  close: 0
 --- !u!61 &1746934674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19410,12 +19412,6 @@ MonoBehaviour:
   - {fileID: 638424320}
   - {fileID: 1415994074}
   - {fileID: 308638552}
-  dialogBoxesOnLevel:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &2028353076
 Transform:
   m_ObjectHideFlags: 0
