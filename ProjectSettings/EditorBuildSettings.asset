@@ -33,6 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ThirdLevel.unity
     guid: 3ee39c98cf9c70346a2aa7d94c8c9bd5
   - enabled: 1
+    path: Assets/Scenes/TavernBuilding.unity
+    guid: 6746c98254de94e4181b7db96be6d07d
+  - enabled: 1
     path: Assets/Scenes/TowerAnimation.unity
     guid: 28ce576794576e647a5b6249c0846e1f
   - enabled: 1

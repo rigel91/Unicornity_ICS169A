@@ -7,7 +7,7 @@ public class CameraTowerZoom : MonoBehaviour
     //current position is x: 402, y: 11, camera size is 15
     //target position is x: 413, y: 53, and camera size is 60
     public GameObject zoomCamera;
-    public GameObject player;
+    private GameObject player;
 
     public GameObject playerCamera;
 
@@ -19,6 +19,8 @@ public class CameraTowerZoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         start = new Vector3(zoomCamera.transform.position.x, zoomCamera.transform.position.y, zoomCamera.transform.position.z);
         end = new Vector3(413, 53, -15);
     }
@@ -26,13 +28,17 @@ public class CameraTowerZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         if (isZoom && player.transform.position.x <= 401)
         {
             isZoom = false;
         }
-        else if(isZoom == false && player.transform.position.x > 401)
+        else if(isZoom == false)
         {
-            isZoom = true;            
+            if (player != null && player.transform.position.x > 401)
+            {
+                isZoom = true;
+            }
         }
 
         if (isZoom == true)
