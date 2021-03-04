@@ -37,7 +37,7 @@ public class PlayerSpawn : MonoBehaviour
 
         if (Time.time > time && !once)
         {
-            Debug.Log("great!");
+            //Debug.Log("great!");
             once = true;
             if (player.startPoint == pointName)
             {
