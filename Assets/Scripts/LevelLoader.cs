@@ -23,17 +23,13 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<moveplayer>();
         //check for animation level
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             //falling animation level
             StartCoroutine(AnimationLevel(14));
-        }
-        else if (SceneManager.GetActiveScene().buildIndex == 8)
-        {
-            //tower animation level
-            StartCoroutine(AnimationLevel(6));
-        }
+        }        
     }
 
     public void LoadNextLevel()
@@ -83,12 +79,13 @@ public class LevelLoader : MonoBehaviour
             //SceneManager.LoadScene(7);
             //LoadNextLevel();
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 7)
+        //else if (SceneManager.GetActiveScene().buildIndex == 7)
+        //{        
+        //    StartCoroutine(LoadLevelWOScene(8));
+        //}
+        else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
-            StartCoroutine(LoadLevelWOScene(8));
-        }
-        else if (collision.gameObject.tag == "Player") //&& puzzleComplete.isPuzzleSolved())
-        {
+            Debug.Log("here");
             LoadNextLevel();
         }               
     }
@@ -119,6 +116,17 @@ public class LevelLoader : MonoBehaviour
                 StartCoroutine(LoadLevel(4));
             }
 
+            if (exitPoint == "Tavern Enter")
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(8));
+            }
+            else if (exitPoint == "Tavern Exit")
+            {
+                player.startPoint = exitPoint;
+                StartCoroutine(LoadLevel(7));
+            }
+
             //if (SceneManager.GetActiveScene().buildIndex == 4)
             //{
             //    player.startPoint = exitPoint;
@@ -129,6 +137,15 @@ public class LevelLoader : MonoBehaviour
             //    player.startPoint = exitPoint;
             //    StartCoroutine(LoadLevel(4));
             //}
+        }
+        else if (collision.tag == "Player")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 8 && player.transform.position.x > 450)
+            {
+                Debug.Log("here");
+                //tower animation level
+                StartCoroutine(AnimationLevel(6));
+            }
         }
     }
 }

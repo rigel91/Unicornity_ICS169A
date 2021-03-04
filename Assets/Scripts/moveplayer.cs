@@ -49,8 +49,7 @@ public class moveplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if (SceneManager.GetActiveScene().buildIndex == 4) //|| SceneManager.GetActiveScene().buildIndex == 7)
-        if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 7)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             if (!playerExists)
             {
@@ -59,18 +58,59 @@ public class moveplayer : MonoBehaviour
             }
             else
             {
-                if (SceneManager.GetActiveScene().buildIndex == 7)
+                Destroy(gameObject);
+            }
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            
+            if (GameObject.Find("Player2") != null)
+            {
+                playerExists = false;
+                //Destroy(GameObject.Find("Player3"));
+                //Debug.Log("destroy");
+                Destroy(GameObject.Find("Player2"));
+            }
+            //else
+            //{
+                if (!playerExists)
                 {
-                    Destroy(GameObject.Find("Player2"));
+                    //Debug.Log("dont");
+                    playerExists = true;
+                    DontDestroyOnLoad(transform.gameObject);
                 }
                 else
                 {
+                    Debug.Log("another destroy");
                     Destroy(gameObject);
                 }
-                //Destroy(GameObject.Find("Player"));
-                
-            }
+            //}
+
         }
+        //if (SceneManager.GetActiveScene().buildIndex == 4) //|| SceneManager.GetActiveScene().buildIndex == 7)
+        //if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 7)
+        //{
+        //    if (!playerExists)
+        //    {
+        //        playerExists = true;
+        //        DontDestroyOnLoad(transform.gameObject);
+        //    }
+        //    else
+        //    {
+        //        //if (SceneManager.GetActiveScene().buildIndex == 7)
+        //        //{
+        //        if (GameObject.Find("Player2") != null)
+        //        {
+        //            //Destroy(GameObject.Find("Player3"));
+        //            Destroy(GameObject.Find("Player2"));
+        //        }
+        //        else
+        //        {
+        //            //Destroy(GameObject.Find("Player2"));
+        //            Destroy(gameObject);                                        
+        //        }                
+        //    }
+        //}
         //else if (SceneManager.GetActiveScene().buildIndex == 7)
         //{
         //    if (!playerExists)
