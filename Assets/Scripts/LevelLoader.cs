@@ -92,7 +92,7 @@ public class LevelLoader : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && Input.GetKey(KeyCode.E))
+        if (collision.tag == "Player" && Input.GetKey(KeyCode.W))
         {
             if (exitPoint == "Doctor House Enter")
             {

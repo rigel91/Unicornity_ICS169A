@@ -363,7 +363,6 @@ public class dialogBox : MonoBehaviour
     public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
     {
         resetSpeechPrompt();
-
         List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (2)");
 
         for (int i = 0; i < definition.Count; i++)
