@@ -23,7 +23,11 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<moveplayer>();
+        if (SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<moveplayer>();
+        }
+        
         //check for animation level
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
