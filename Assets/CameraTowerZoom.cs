@@ -44,7 +44,8 @@ public class CameraTowerZoom : MonoBehaviour
         if (isZoom == true)
         {
             zoomCamera.SetActive(true);
-            playerCamera.SetActive(false);
+            //playerCamera.SetActive(false);
+            playerCamera.GetComponent<Camera>().enabled = false;
             //player position from x: 402 to x: 459
             float distance = player.transform.position.x - 288;
             float t = distance / 57;           
@@ -60,8 +61,9 @@ public class CameraTowerZoom : MonoBehaviour
         }
         else
         {
-            playerCamera.SetActive(true);
-            zoomCamera.SetActive(false);            
+            //playerCamera.SetActive(true);
+            playerCamera.GetComponent<Camera>().enabled = true;
+            zoomCamera.SetActive(false);      
         }
     }
 }
