@@ -10,6 +10,8 @@ public class dialogBox : MonoBehaviour
     public GameObject pressEPrompt;
     public bool hasUnreadDialog;
 
+    
+
 
 
     [Header("Dialogue TMP text")]
@@ -38,6 +40,7 @@ public class dialogBox : MonoBehaviour
     public GameObject hintSentence;
 
     private int npcIndex;
+    private IEnumerator typer;
 
     public string translatedText;
     //private List<string> translatedText;
@@ -66,13 +69,12 @@ public class dialogBox : MonoBehaviour
     {
         foreach (char letter in npcDialogueSentences[npcIndex].ToCharArray())
         {
-            if (dialogTransitioning == true)
-            {
-                npcDialogueText.text += letter;
-                yield return new WaitForSeconds(typingSpeed);
-            }
+            npcDialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
         }
+
         dialogTransitioning = false;
+        
     }
 
     private void ContinueNPCDialogue()
@@ -115,14 +117,18 @@ public class dialogBox : MonoBehaviour
         //close = true;
 
         hideSpeechPrompt();
+        StopCoroutine(typer);
+        dialogTransitioning = false;
 
-        if (npcSpeechBubbleAnimator == null)
+        if (npcSpeechBubbleAnimator == null) //for the new system that has the dialog box at the bottom of the screen
         {
-            npcIndex = -1;
+            //npcIndex = -1; 
             //close box immediately (no animation right now)
             OverlayDBRectTransform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
             dialogClosed = true;
         }
+
+
         if (!dialogClosed)
         {
             npcIndex = -1;
@@ -336,10 +342,11 @@ public class dialogBox : MonoBehaviour
                 OverlayDBRectTransform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 dialogClosed = false;
             }
-             //StartCoroutine(nextDialogBox());
-             npcDialogueText.text = string.Empty;
-             dialogTransitioning = true;
-             StartCoroutine(TypeNPCDialogue());
+            //StartCoroutine(nextDialogBox());
+            npcDialogueText.text = string.Empty;
+            dialogTransitioning = true;
+            typer = TypeNPCDialogue();
+            StartCoroutine(typer);
         }
         else
         {
@@ -414,17 +421,8 @@ public class dialogBox : MonoBehaviour
 
     private void skipDialog()
     {
-        dialogTransitioning = false;
         requestClose();
-        npcIndex += 1;
-
-        if (npcIndex < npcDialogueSentences.Count - 1)
-        {
-            RequestDialog();
-        }
-        else{
-            npcIndex = -1;
-        }
+        RequestDialog();
     }
 
     private void hideSpeechPrompt()
