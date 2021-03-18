@@ -87,6 +87,30 @@ public class moveplayer : MonoBehaviour
             //}
 
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 10)
+        {
+            if (GameObject.Find("Player3") != null)
+            {
+                playerExists = false;
+                //Destroy(GameObject.Find("Player3"));
+                //Debug.Log("destroy");
+                Destroy(GameObject.Find("Player3"));
+            }
+            //else
+            //{
+            if (!playerExists)
+            {
+                //Debug.Log("dont");
+                playerExists = true;
+                DontDestroyOnLoad(transform.gameObject);
+            }
+            else
+            {
+                Debug.Log("another destroy");
+                Destroy(gameObject);
+            }
+            //}
+        }
         //if (SceneManager.GetActiveScene().buildIndex == 4) //|| SceneManager.GetActiveScene().buildIndex == 7)
         //if (SceneManager.GetActiveScene().buildIndex == 4 || SceneManager.GetActiveScene().buildIndex == 7)
         //{

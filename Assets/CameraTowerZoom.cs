@@ -22,20 +22,20 @@ public class CameraTowerZoom : MonoBehaviour
         
 
         start = new Vector3(zoomCamera.transform.position.x, zoomCamera.transform.position.y, zoomCamera.transform.position.z);
-        end = new Vector3(413, 53, -15);
+        end = new Vector3(270, 53, -15);
     }
 
     // Update is called once per frame
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if (isZoom && player.transform.position.x <= 401)
+        if (isZoom && player.transform.position.x <= 288)
         {
             isZoom = false;
         }
         else if(isZoom == false)
         {
-            if (player != null && player.transform.position.x > 401)
+            if (player != null && player.transform.position.x > 288)
             {
                 isZoom = true;
             }
@@ -44,9 +44,10 @@ public class CameraTowerZoom : MonoBehaviour
         if (isZoom == true)
         {
             zoomCamera.SetActive(true);
-            playerCamera.SetActive(false);
+            //playerCamera.SetActive(false);
+            playerCamera.GetComponent<Camera>().enabled = false;
             //player position from x: 402 to x: 459
-            float distance = player.transform.position.x - 401;
+            float distance = player.transform.position.x - 288;
             float t = distance / 57;           
             zoomCamera.transform.position = Vector3.Lerp(start, end, t);
             if (t * 60 <= 15)
@@ -60,8 +61,9 @@ public class CameraTowerZoom : MonoBehaviour
         }
         else
         {
-            playerCamera.SetActive(true);
-            zoomCamera.SetActive(false);            
+            //playerCamera.SetActive(true);
+            playerCamera.GetComponent<Camera>().enabled = true;
+            zoomCamera.SetActive(false);      
         }
     }
 }

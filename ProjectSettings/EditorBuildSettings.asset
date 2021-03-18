@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TowerAnimation.unity
     guid: 28ce576794576e647a5b6249c0846e1f
   - enabled: 1
+    path: Assets/Scenes/LastLevel.unity
+    guid: 9db88484c5b803b4a8f20b5c63898a2a
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: 091a8c94ed965af48a885f9fad506698
+  - enabled: 1
     path: Assets/Scenes/EndDemo.unity
     guid: 10ea97a775070a44298f870295d4499e
   m_configObjects: {}
