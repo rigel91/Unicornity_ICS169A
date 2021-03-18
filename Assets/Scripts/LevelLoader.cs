@@ -23,7 +23,7 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 2)
+        if (SceneManager.GetActiveScene().buildIndex != 2 && SceneManager.GetActiveScene().buildIndex != 9)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<moveplayer>();
         }
@@ -33,7 +33,12 @@ public class LevelLoader : MonoBehaviour
         {
             //falling animation level
             StartCoroutine(AnimationLevel(14));
-        }        
+        }
+        
+        if (SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            StartCoroutine(AnimationLevel(5));
+        }
     }
 
     public void LoadNextLevel()
@@ -83,10 +88,10 @@ public class LevelLoader : MonoBehaviour
             //SceneManager.LoadScene(7);
             //LoadNextLevel();
         }
-        //else if (SceneManager.GetActiveScene().buildIndex == 7)
-        //{        
-        //    StartCoroutine(LoadLevelWOScene(8));
-        //}
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            StartCoroutine(LoadLevelWOScene(9));
+        }
         else if (collision.gameObject.tag == "Player" && puzzleComplete.isPuzzleSolved())
         {
             Debug.Log("here");

@@ -1,0 +1,37 @@
+CharacterID,Level,Languages,KeywordID,Dialogue,Full Clue,Flag1 Dialogue,Flag2 Dialogue,Flag3 Dialogue,Flag4 Dialogue,Flag5 Dialogue
+a000b0504030003,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+a09000102000302,0,a,0,You...You fell from the sky!~How is that possible?~Am I dreaming?,Gi...gi naltaao nimu!,NULL,NULL,NULL,NULL,NULL
+a01090408060104,0,a,1,"You are hurt, but no one can help you this far from the tower...~Tower, do you understand?~Go to the tower!","I debluao, tap gi chiwech ikuuw mashsas",NULL,NULL,NULL,NULL,NULL
+a000a0405000004,0,a,2~3,Someone in the village must be able to heal you with their magic~Head in the tower's direction.~You'll reach the village~...hopefully.,Nudebe tapech liichaade gi kaatoch ko mashsuasi,NULL,NULL,NULL,NULL,NULL
+a09050704040100,0,a,1~3,"I heard the tower has magic that can do anything...~I've never been that close before, but if the stories are true...",Piiwime aheepimu ko mashsuasi ikaw mashsas,NULL,NULL,NULL,NULL,NULL
+a0c000400000502,0,a,999,Do you know the story about the man in the tower?~A bard told me about it a long time ago.~I can barely remember the detail...,Authedao hajieen kaata vi mashsas?,NULL,NULL,NULL,NULL,NULL
+a000e0503050300,1,c,11~14,"Oh, good, you are okay. If only I could help my daughter with this medicine.~She’s gravely ill but can’t get better without proper food. ","oh drong, tad hyidt'eh. Tsad lij g’om liji dfak frabang wite dfog’a.",,,,,
+a090a0703060001,1,,999,"We must not rely on magic to solve our problems.~Through faith and diligence, we will be able to restore the crops.~Those who are reliant on magic will not know how to reap God’s rewards.",Muju dro'fraban ti winei adui'ipuu!,,,,,
+a0c1c000b010104,1,b,4~5,The stone must be somewhere in that village! Go find it!~We’ve already dug up the crops and it wasn’t in the soil! I will not hesitate to turn the whole village upside down if it means I can find the stone!,Iiloaa ninoowii yolee pazii siwoofe! Wu chiwee!,,,,,
+a0b110007000503,1,b,6~7,"You, strange traveler! Good timing!~Take this shovel. We’ve looked everywhere and we can’t find the stone.",Ma! K'ipuu lomoo! Chiike chaa rore!,,,,,
+a0b040606020601,1,b,5~10,I met a really good storyteller in that village before,Pii pa zofuu chiike maari'uui siwoofe,,,,,
+a0b100003050601,1,b,4~7~8~10,I think boss must be crazy. The story of that stone is too good to be true.,T'uui ninoowii n'jiuu pii kuuroo. Maari fa iiloaa ryu chiike.,,,,,
+a0d150008060001,1,b,6~8~9,"Boss, I think this traveler comes from somewhere really far.","T'uui, yaa zo k'ipuu pii kuuroo yolee'vumu.",,,,,
+a0d060005030604,1,b,4~8,What does boss want to do with that stone?,Wii tʼuui niva lu te'aa iiloaa ?,,,,,
+a0d020009040503,1,b,4~6~10,"Traveler, have you heard the story about a stone that glows?","Kʼipuu, puu ma vaapii maari fa sima iiloaa",,,,,
+a000c0304020000,1,c,999,"… The village was known for their plentiful corn harvest, among other crops...","...Nlad liko gorfi tsah hyi glang tsagi, b’im ibeg’d...",, ,,,
+a001b0109040402,1,c,11~14,I know Daddy can help me get better.,Lji gorfi kpapa g'om dfak'miiaro.,,,,,
+a00080404000303,1,c,11~12,Can you get some corn for my daughter?,G'om fi'ktad glang kstar frabang?,,,,,
+a01130704060000,1,c,13~15,... No one knew how it was destroyed...~Debris from the tower was scattered throughout many villages. ...,...jik dag gorfi kig tsats gok b’ok heddim...,,,,,
+book1,1,NULL,999,"Some believed magic to be the root of their success, as stories of a powerful stone were passed down through generations.",,,,,,
+a00030304020000,1,,12~13,The corn… it’s all destoryed!,d...dfak...gorfi kalta!,,,,,
+a000c0304020000,1,,NULL,,,,,,,
+a00190304020000,1,,999,Why would someone dig up our crops like this?,Th'ar gorfi co'ktad dfak yem....,,,,,
+a00150304020000,1,,13~16,Is it destroyed because of that legend? The one about the stone?,E'ar gorfi kig yom chy'ko? Pet'sa bogh quemasus?,,,,,
+a03140704060004,1,,12~16,How can we grow the corn without the stone?,Pu'ar rhish'miia glang ityh'na quemasus?,,,,,
+a00080501010001,2,,999,I wonder what we will eat at the banquet tonight!,I wonder what we will eat at the banquet tonight!,,,,,
+a01150601060100,2,,999,Welcome to our humble little town respectable traveler! In honor of you gracing us with your presence would you care to join us for our banquet?,Welcome to our humble little town respectable traveler! In honor of you gracing us with your presence would you care to join us for our banquet?,,,,,
+a02140000030001,2,,999,"Would you care to join me for a drink?~I want to loosen up a bit before tomorrow. Big day, you know.","Would you care to join me for a drink?~I want to loosen up a bit before tomorrow. Big day, you know.",,,,,
+a08000705030000,2,,999,Can you come with me to get a snack from the food stall nearby?~I’d like to get something while I still can!,Can you come with me to get a snack from the food stall nearby?~I’d like to get something while I still can!,,,,,
+a0a070005060104,2,,999,"We need to eat well before the event tomorrow, so you’re lucky to have arrived today!","We need to eat well before the event tomorrow, so you’re lucky to have arrived today!",,,,,
+a010b0505020000,2,,999,"I have a big responsibility for tomorrow, but it’s such an honor to be included.","I have a big responsibility for tomorrow, but it’s such an honor to be included.",,,,,
+a010a0101020604,2,,999,He is so lucky to have been chosen…,He is so lucky to have been chosen…,,,,,
+a03030005020404,2,,999,The tradition we maintain is worth it if it means we can replenish the magic!,The tradition we maintain is worth it if it means we can replenish the magic!,,,,,
+a07190605040300,2,,999,You must be tired from all that traveling! Are you planning on getting some rest later?,You must be tired from all that traveling! Are you planning on getting some rest later?,,,,,
+a00050500000602,2,,999,I’ve never seen a traveler like you come this way before?,I’ve never seen a traveler like you come this way before?,,,,,
+a03120503020600,2,,999,My family is cooking for tonight’s banquet. Dad says it’s a big responsibility!,My family is cooking for tonight’s banquet. Dad says it’s a big responsibility!,,,,,

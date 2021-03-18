@@ -10,10 +10,6 @@ public class dialogBox : MonoBehaviour
     public GameObject pressEPrompt;
     public bool hasUnreadDialog;
 
-    
-
-
-
     [Header("Dialogue TMP text")]
     public TextMeshProUGUI npcDialogueText;
 
@@ -117,7 +113,11 @@ public class dialogBox : MonoBehaviour
         //close = true;
 
         hideSpeechPrompt();
-        StopCoroutine(typer);
+        if (typer != null)
+        {
+            StopCoroutine(typer);
+        }
+        
         dialogTransitioning = false;
 
         if (npcSpeechBubbleAnimator == null) //for the new system that has the dialog box at the bottom of the screen
@@ -284,6 +284,28 @@ public class dialogBox : MonoBehaviour
             sentenceTotal.Add("Take this journal to help you find out who is behind the Towers power.");
             sentenceTotal.Add("Jump off the edge when you are done.");
         }
+        else if (npcData.characterID == "Angel")
+        {
+            sentenceTotal.Add("I have been waiting for you.");
+            sentenceTotal.Add("I have been watching you.");
+            sentenceTotal.Add("In fact, I was you.");
+
+            sentenceTotal.Add("Thousand years ago, God sent me down here just as He sent you.");
+            sentenceTotal.Add("This half-destroyed tower we are standing on, it was destroyed by no other than me.");
+            sentenceTotal.Add("It was the crown jewel of mankind’s wisdom,");
+
+            sentenceTotal.Add("a machine that directly draw magic from heaven.");
+            sentenceTotal.Add("He could not withstand that, and I obeyed His order with no second thought.");
+            sentenceTotal.Add("...I did not know what magic meant to mankind.");
+
+            sentenceTotal.Add("But unlike me back then, you have seen them now; you have met them.");
+            sentenceTotal.Add("More importantly, you understand them.");
+            sentenceTotal.Add("So how will you choose?");
+
+            sentenceTotal.Add("Destroy this tower so you can go back to heaven?");
+            sentenceTotal.Add("Or stay with me to rebuild it, in hope it may once function again?");
+            sentenceTotal.Add("How will you choose?");
+        }
         npcDialogueSentences = sentenceTotal;
 
         npcIndex = -1;
@@ -345,8 +367,14 @@ public class dialogBox : MonoBehaviour
             //StartCoroutine(nextDialogBox());
             npcDialogueText.text = string.Empty;
             dialogTransitioning = true;
-            typer = TypeNPCDialogue();
-            StartCoroutine(typer);
+
+                typer = TypeNPCDialogue();
+            
+            
+
+                StartCoroutine(typer);
+            
+            
         }
         else
         {
@@ -370,7 +398,7 @@ public class dialogBox : MonoBehaviour
     public void translateText() //currently this will not work if there is more than one sentence in the same speech bubble
     {
         resetSpeechPrompt();
-        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (2)");
+        List<Dictionary<string, object>> definition = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1(2).xlsx - Unicornity Character Sheet.xlsx(3)");
 
         for (int i = 0; i < definition.Count; i++)
         {

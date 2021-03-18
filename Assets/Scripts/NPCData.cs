@@ -43,11 +43,13 @@ public class NPCData : MonoBehaviour
     {
         //data from the character sheet csv file - string: row, object: column
         //List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2)"); //old csv file
-        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (2)");
+        //List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (2)");
+        List<Dictionary<string, object>> data = CSVReader.Read("Unicornity Character Sheet.xlsx - Sheet1 (2).xlsx - Unicornity Character Sheet.xlsx (3)");
+
 
         //set the variables for the NPC from the data dictionary
         for (var i = 0; i < data.Count; i++)
-        {
+        {            
             if ((data[i]["CharacterID"]).ToString() == characterID)
             {
                 //set level
@@ -84,6 +86,7 @@ public class NPCData : MonoBehaviour
                 {
                     dialogue.Add(sentences[j]);
                     //print("Dialogue: " + sentences[j]);
+                    
                 }
 
                 //set the dialogue
